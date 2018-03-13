@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateRowsTable extends Migration
+class CreateCellsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,12 @@ class CreateRowsTable extends Migration
      */
     public function up()
     {
-        Schema::create('rows', function (Blueprint $table) {
+        Schema::create('cells', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('form_id')->unsigned();
-            $table->foreign('form_id')->references('id')->on('forms');
+            $table->integer('row_id')->unsigned();
+            $table->foreign('row_id')->references('id')->on('rows');
+            $table->string('cellText');
+            $table->integer('level');
             $table->timestamps();
         });
     }
@@ -28,6 +30,6 @@ class CreateRowsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('rows');
+        Schema::dropIfExists('cells');
     }
 }
