@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\rows;
 use Illuminate\Http\Request;
 
 class rowsController extends Controller
@@ -41,10 +40,10 @@ class rowsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\rows  $rows
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(rows $rows)
+    public function show($id)
     {
         //
     }
@@ -52,10 +51,10 @@ class rowsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\rows  $rows
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(rows $rows)
+    public function edit($id)
     {
         //
     }
@@ -64,10 +63,10 @@ class rowsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\rows  $rows
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, rows $rows)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -75,10 +74,10 @@ class rowsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\rows  $rows
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(rows $rows)
+    public function destroy($id)
     {
         //
     }

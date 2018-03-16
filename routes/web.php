@@ -15,10 +15,21 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
 
 //Auth::routes();
 
 Route::get('/admin', 'AdminController@index')->name('admin');
+
+
+//For the 'create rubrick' page
+
+// ->middleware('auth')
+
+Route::resources([
+    'form' => 'formsController'
+]);
+
+
+//to store items in the forms database
+Route::post('/forms', 'formsController@store');

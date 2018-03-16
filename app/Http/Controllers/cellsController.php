@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\cells;
 use Illuminate\Http\Request;
 
-class cellsController extends Controller
+class cells extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +40,10 @@ class cellsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\cells  $cells
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(cells $cells)
+    public function show($id)
     {
         //
     }
@@ -52,10 +51,10 @@ class cellsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\cells  $cells
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(cells $cells)
+    public function edit($id)
     {
         //
     }
@@ -64,10 +63,10 @@ class cellsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\cells  $cells
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, cells $cells)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -75,10 +74,10 @@ class cellsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\cells  $cells
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(cells $cells)
+    public function destroy($id)
     {
         //
     }
