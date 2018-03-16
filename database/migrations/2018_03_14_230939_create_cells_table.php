@@ -15,6 +15,10 @@ class CreateCellsTable extends Migration
     {
         Schema::create('cells', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('row_id')->unsigned();
+            $table->foreign('row_id')->references('id')->on('rows');
+            $table->string('cellText');
+            $table->integer('level');
             $table->timestamps();
         });
     }

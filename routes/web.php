@@ -26,10 +26,18 @@ Route::get('/admin', 'AdminController@index')->name('admin');
 
 // ->middleware('auth')
 
-Route::resources([
-    'form' => 'formsController'
-]);
+// Route::resources([
+//     'form' => 'formsController',
+//     'form/create' => 'formsController'
+// ]);
 
+// Route::resource('form', 'formsController', ['names' => [
+//     'form' => 'form.index',
+//     'create' => 'form.create'
+// ]]);
+
+Route::get('form', 'formsController@index');
+Route::post('form/create', 'formsController@create');
 
 //to store items in the forms database
 Route::post('/forms', 'formsController@store');
