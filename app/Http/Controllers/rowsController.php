@@ -81,9 +81,4 @@ class rowsController extends Controller
     {
         //
     }
-
-    public function validate()
-    { 
-        //
-    }
 }

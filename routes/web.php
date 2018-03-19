@@ -21,8 +21,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/admin', 'AdminController@index')->name('admin');
 
-Route::get('rows/validate', 'RowsController@validate');
-
 Route::resources([
     'forms'=> 'FormsController',
     'rows'=> 'RowsController'
