@@ -14,7 +14,7 @@ class CreateRowsTable extends Migration
     public function up()
     {
         Schema::create('rows', function (Blueprint $table) {
-            $table->increments('id');
+            $table->integer('id');
             $table->integer('form_id')->unsigned();
             $table->foreign('form_id')->references('id')->on('forms');
             $table->timestamps();

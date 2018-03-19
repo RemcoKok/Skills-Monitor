@@ -14,9 +14,9 @@ class CreateCellsTable extends Migration
     public function up()
     {
         Schema::create('cells', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->integer('row_id')->unsigned();
-            $table->foreign('row_id')->references('id')->on('rows');
+            $table->integer('row_id');
             $table->string('cellText');
             $table->integer('level');
             $table->timestamps();

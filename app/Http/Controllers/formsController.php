@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\forms;
-use App\rows;
-use App\cells;
+use App\Forms;
+use App\Rows;
+use App\Cells;
 use Illuminate\Http\Request;
 
 class formsController extends Controller
@@ -16,11 +16,7 @@ class formsController extends Controller
      */
     public function index()
     {
-        
-
-        return view ('form.index');
-                      
-        
+        return view ('forms.index');
     }
 
     /**
@@ -30,11 +26,11 @@ class formsController extends Controller
      */
     public function create()
     {
-        $forms = forms::all() ;
-        $rows = rows::all();
-        $cells = cells::all();
-
-        return view ('form.create',compact('forms', 'rows', 'cells'));
+        $forms = Forms::all();
+        $rows = Rows::all();
+        $cells = Cells::all();
+        
+        return view('forms.create', compact('forms', 'rows', 'cells'));
     }
 
     /**
@@ -45,9 +41,8 @@ class formsController extends Controller
      */
     public function store(Request $request)
     {
-        
         //create a new form 
-        $form = new forms;
+        $form = new Forms;
 
         //add the data from the form
         $form->title = request('title');
@@ -56,7 +51,10 @@ class formsController extends Controller
         $form->save();
 
         //return to the home page
-        return redirect('/form');
+        return redirect('/forms');
+    
+        
+        
     }
 
     /**

@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class forms extends Model
+class Forms extends Model
 {
-    // protected $guarded = [''];
+    protected $fillable = ['title'];
 }

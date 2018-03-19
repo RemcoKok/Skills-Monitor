@@ -21,23 +21,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/admin', 'AdminController@index')->name('admin');
 
+Route::get('rows/validate', 'RowsController@validate');
 
-//For the 'create rubrick' page
-
-// ->middleware('auth')
-
-// Route::resources([
-//     'form' => 'formsController',
-//     'form/create' => 'formsController'
-// ]);
-
-// Route::resource('form', 'formsController', ['names' => [
-//     'form' => 'form.index',
-//     'create' => 'form.create'
-// ]]);
-
-Route::get('form', 'formsController@index');
-Route::post('form/create', 'formsController@create');
-
-//to store items in the forms database
-Route::post('/forms', 'formsController@store');
+Route::resources([
+    'forms'=> 'FormsController',
+    'rows'=> 'RowsController'
+]);
