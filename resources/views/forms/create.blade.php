@@ -13,7 +13,7 @@
         </div>
 
         <div class="box-body">
-        <form method="post" action="{{route('forms.store')}}, {{route('rows.create')}}">
+        <form method="post" action="{{route('forms.store')}}">
             {{ csrf_field() }}
             <div class="form-group">
                 <label for="exampleInputEmail1">
