@@ -50,11 +50,22 @@ class formsController extends Controller
         //save the new form
         $form->save();
 
-        //return to the home page
+        $array = request('formBox');
+        
+                $id = $form->id;
+
+                foreach($array as $key => $value){
+                    $row = new Rows;
+                    
+                    $row->id = $value;
+        
+                    $row->form_id = $id;
+                    
+                    $row->save();
+                }
+
         return redirect('/forms');
     
-        
-        
     }
 
     /**

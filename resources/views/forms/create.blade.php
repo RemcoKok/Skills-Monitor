@@ -13,7 +13,7 @@
         </div>
 
         <div class="box-body">
-        <form method="post" action="{{route('forms.store')}}, {{route('rows.create')}}">
+        <form method="post" action="{{route('forms.store')}}">
             {{ csrf_field() }}
             <div class="form-group">
                 <label for="exampleInputEmail1">
@@ -24,35 +24,36 @@
                 </div>
                     <div>
                         <table id="example2" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
-                           <thead>
+                            <thead>
                             </thead>
                             <tbody>
-                            @foreach($rows as $row)
-                                    <tr>
-                                        <td align="center" >
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input id="fromBox" name="fromBox" type="checkbox" value="{{$row->id}}">
-                                                </label>
-                                            </div>
-                                        </td>
-                                            
-                                        @foreach($cells as $cell)
-                                            @if($cell->row_id == $row->id)
-                                                <td align="center">
-                                                    <h3>{{$cell->cellText}}</h3>
-                                                </td>
-                                             @endif
-                                         @endforeach
-                                    </tr>
+                                <?php
+                                    $x = 1;
+                                ?>
+                                @foreach($cells as $cell)
+                                    @for($x; $cell->row_id == $x; $x++)
+                                        <tr>
+                                            <td align="center" >
+                                                <div class="checkbox">
+                                                    <label>
+                                                        <input value= "{{$cell->row_id}}" name="formBox[]" type="checkbox">
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            @foreach($cells as $cell)
+                                                @if($cell->row_id == $x)
+                                                    <td align="center">
+                                                        <h3>{{$cell->cellText}}</h3>
+                                                    </td>
+                                                @endif
+                                            @endforeach
+                                        </tr>
+                                    @endfor
                                 @endforeach
                             </tbody>
                     </table>
                 </div>
-                
-        
             <button type="submit" class="btn btn-primary">save</button>
-
         </form>
     </div>
 @stop
