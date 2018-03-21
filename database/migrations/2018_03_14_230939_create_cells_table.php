@@ -17,7 +17,7 @@ class CreateCellsTable extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->integer('row_id');
-            $table->string('cellText');
+            $table->text('cellText');
             $table->integer('level');
             $table->timestamps();
         });

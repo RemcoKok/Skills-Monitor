@@ -134,7 +134,7 @@ return [
         ],
         [
             'text'    => 'Formulieren',
-            'icon'    => 'share',
+            'icon'    => ' fa-file-text-o',
             'submenu' => [
                 [
                     'text' => 'Aanmaken',

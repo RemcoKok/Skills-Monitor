@@ -17,12 +17,12 @@ Route::get('/', function () {
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-//Auth::routes();
+Auth::routes();
 
 Route::get('/admin', 'AdminController@index')->name('admin');
 
 Route::get('/vragen_toevoegen', function () {
-    return view('add');
+    return view('createCells/add');
 });
 
 Route::resources([
