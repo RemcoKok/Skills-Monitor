@@ -13,8 +13,8 @@ class SuperAdminController extends Controller
      */
     public function __construct()
     {
-    $this->middleware('auth:superadmin');
-    //$this->middleware('auth');
+    //$this->middleware('auth:superadmin');
+    $this->middleware('auth');
     }
     
     /**
