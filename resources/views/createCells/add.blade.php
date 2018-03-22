@@ -14,35 +14,35 @@
 
         <div class="box-body">
             <form method="post" action="{{route('cells.store')}}">
+                {{ csrf_field() }}
                 <div class="form-group">
                     <label>Vul cel 1 in</label>
-                    <textarea type="text" class="form-control" rows="3" placeholder="Enter description"
-                              name="cell"></textarea>
+                    <textarea type="text" class="form-control" rows="3" placeholder="Enter description" name="cell[]"></textarea>
                 </div>
 
                 <div class="form-group">
                     <label>Vul cel 2 in</label>
-                    <textarea class="form-control" rows="3" placeholder="Enter description"></textarea>
+                    <textarea class="form-control" rows="3" placeholder="Enter description" name="cell[]"></textarea>
                 </div>
 
                 <div class="form-group">
                     <label>Vul cel 3 in</label>
-                    <textarea class="form-control" rows="3" placeholder="Enter description"></textarea>
+                    <textarea class="form-control" rows="3" placeholder="Enter description" name="cell[]"></textarea>
                 </div>
 
                 <div class="form-group">
                     <label>Vul cel 4 in</label>
-                    <textarea class="form-control" rows="3" placeholder="Enter description"></textarea>
+                    <textarea class="form-control" rows="3" placeholder="Enter description" name="cell[]"></textarea>
                 </div>
 
                 <div class="form-group">
                     <label>Vul cel 5 in</label>
-                    <textarea class="form-control" rows="3" placeholder="Enter description"></textarea>
+                    <textarea class="form-control" rows="3" placeholder="Enter description" name="cell[]"></textarea>
                 </div>
 
                 <div class="form-group">
                     <label>Vul cel 6 in</label>
-                    <textarea class="form-control" rows="3" placeholder="Enter description"></textarea>
+                    <textarea class="form-control" rows="3" placeholder="Enter description" name="cell[]"></textarea>
                 </div>
                 <button type="submit" class="btn btn-primary pull-right">Submit</button>
             </form>
