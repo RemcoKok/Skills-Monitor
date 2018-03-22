@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
 
 class SuperAdminController extends Controller
 {
@@ -24,6 +25,8 @@ class SuperAdminController extends Controller
      */
     public function index()
     {
-        return view('superadmin');
+        $usersData = DB::table('users')
+        -> get();
+        return view ('superadmin', compact('usersData', $usersData));
     }
-} 
+}
