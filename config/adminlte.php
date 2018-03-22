@@ -45,7 +45,7 @@ return [
     |
     */
 
-    'skin' => 'blue',
+    'skin' => 'red',
 
     /*
     |--------------------------------------------------------------------------
@@ -134,7 +134,10 @@ return [
         ],
         [
             'text'    => 'Formulieren',
+
+
             'icon'    => ' fa-file-text-o',
+
             'submenu' => [
                 [
                     'text' => 'Aanmaken',
@@ -153,6 +156,7 @@ return [
                     'url'     => '#',
                 ],
                 [
+
                     'text' => 'Aanpassen',
                     'url'  => '#',
                 ],
