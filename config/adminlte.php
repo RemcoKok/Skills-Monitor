@@ -45,7 +45,7 @@ return [
     |
     */
 
-    'skin' => 'blue',
+    'skin' => 'red',
 
     /*
     |--------------------------------------------------------------------------
@@ -134,7 +134,10 @@ return [
         ],
         [
             'text'    => 'Formulieren',
-            'icon'    => 'share',
+
+
+            'icon'    => ' fa-file-text-o',
+
             'submenu' => [
                 [
                     'text' => 'Aanmaken',
@@ -142,7 +145,7 @@ return [
                 ],
                 [
                     'text'    => 'Toevoegen',
-                    'url'     => '#',
+                    'url'     => 'cells',
                 ],
                 [
                     'text' => 'Inzien',
@@ -153,6 +156,7 @@ return [
                     'url'     => '#',
                 ],
                 [
+
                     'text' => 'Aanpassen',
                     'url'  => '#',
                 ],

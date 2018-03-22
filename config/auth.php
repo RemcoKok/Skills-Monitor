@@ -53,6 +53,14 @@ return [
             'driver' => 'token',
             'provider' => 'admins',
         ],
+        'superadmin' => [
+            'driver' => 'session',
+            'provider' => 'superadmins',
+        ],
+        'superadmin-api' => [
+            'driver' => 'token',
+            'provider' => 'superadmins',
+        ],
     ],
 
 
@@ -82,6 +90,10 @@ return [
             'driver' => 'eloquent',
             'model' => App\Admin::class,
         ],
+        'superadmins' => [
+            'driver' => 'eloquent',
+            'model' => App\SuperAdmin::class,
+        ],
 
         // 'users' => [
         //     'driver' => 'database',
@@ -108,9 +120,14 @@ return [
         'users' => [
             'provider' => 'users',
             'table' => 'password_resets',
-            'expire' => 60,
+            'expire' => 30,
         ],
         'admins' => [
+            'provider' => 'admins',
+            'table' => 'password_resets',
+            'expire' => 30,
+        ],
+        'superadmins' => [
             'provider' => 'admins',
             'table' => 'password_resets',
             'expire' => 60,
