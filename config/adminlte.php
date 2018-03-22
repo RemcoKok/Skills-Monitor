@@ -134,7 +134,7 @@ return [
         ],
         [
             'text'    => 'Formulieren',
-            'icon'    => 'share',
+            'icon'    => ' fa-file-text-o',
             'submenu' => [
                 [
                     'text' => 'Aanmaken',
@@ -142,7 +142,7 @@ return [
                 ],
                 [
                     'text'    => 'Toevoegen',
-                    'url'     => '#',
+                    'url'     => 'cells',
                 ],
                 [
                     'text' => 'Inzien',
