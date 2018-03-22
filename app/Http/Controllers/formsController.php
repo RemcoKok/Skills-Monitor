@@ -16,7 +16,9 @@ class formsController extends Controller
      */
     public function index()
     {
-        return view ('forms.index');
+        $forms = Forms::all();
+
+        return view ('forms.index',compact('forms'));
     }
 
     /**

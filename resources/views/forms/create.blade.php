@@ -53,7 +53,7 @@
                             </tbody>
                     </table>
                 </div>
-            <button type="submit" class="btn btn-primary">save</button>
+            <button type="submit" class="btn btn-primary pull-right" >save</button>
         </form>
     </div>
 @stop
