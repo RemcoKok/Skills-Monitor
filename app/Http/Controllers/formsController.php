@@ -65,9 +65,9 @@ class formsController extends Controller
                     
                     $row->save();
                 }
-
+        
         return redirect('/forms');
-    
+        
     }
 
     /**
