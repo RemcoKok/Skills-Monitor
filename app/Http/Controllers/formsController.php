@@ -110,12 +110,21 @@ class formsController extends Controller
      * @param  \App\forms  $forms
      * @return \Illuminate\Http\Response
      */
-    public function destroy(forms $forms)
+    public function destroy($id)
     {
-        return view('forms.destroy');
-    }
+        $forms = Forms::all();
+        $rows = Rows::all();
+        foreach($rows as $row){
+            if($row->form_id == $id){
+                $row->delete();
+            }
+        }
+        foreach($forms as $form){
+            if($form->id == $id){
 
-    public function delete(){
-        return view('forms.destroy');
+                $form->delete();
+            }
+        }
+        return redirect('/forms');
     }
 }
