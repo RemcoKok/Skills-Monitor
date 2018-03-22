@@ -16,7 +16,9 @@ class formsController extends Controller
      */
     public function index()
     {
-        return view ('forms.index');
+        $forms = Forms::all();
+
+        return view ('forms.index',compact('forms'));
     }
 
     /**
@@ -50,10 +52,21 @@ class formsController extends Controller
         //save the new form
         $form->save();
 
-        //return to the home page
-        return redirect('/forms');
-    
+        $array = request('formBox');
         
+                $id = $form->id;
+
+                foreach($array as $key => $value){
+                    $row = new Rows;
+                    
+                    $row->id = $value;
+        
+                    $row->form_id = $id;
+                    
+                    $row->save();
+                }
+        
+        return redirect('/forms');
         
     }
 
