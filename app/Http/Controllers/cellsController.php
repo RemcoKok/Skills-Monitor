@@ -57,6 +57,7 @@ class cellsController extends Controller
             $cell->save();
             $id++;
         }
+
         return redirect('/cells');
     }
 

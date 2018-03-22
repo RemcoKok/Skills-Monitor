@@ -45,7 +45,9 @@
                     <textarea class="form-control" rows="3" placeholder="Enter description" name="cell[]"></textarea>
                 </div>
                 <button type="submit" class="btn btn-primary pull-right">Submit</button>
+
             </form>
+
         </div>
 
     </div>
