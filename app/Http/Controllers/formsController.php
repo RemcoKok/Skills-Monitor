@@ -112,6 +112,10 @@ class formsController extends Controller
      */
     public function destroy(forms $forms)
     {
-        //
+        return view('forms.destroy');
+    }
+
+    public function delete(){
+        return view('forms.destroy');
     }
 }
