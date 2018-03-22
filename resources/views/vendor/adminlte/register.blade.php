@@ -15,6 +15,10 @@
 
         <div class="register-box-body">
             <p class="login-box-msg">{{ trans('adminlte::adminlte.register_message') }}</p>
+
+
+
+
             <form action="{{ url(config('adminlte.register_url', 'register')) }}" method="post">
                 {!! csrf_field() !!}
 
@@ -62,6 +66,11 @@
                         class="btn btn-primary btn-block btn-flat"
                 >{{ trans('adminlte::adminlte.register') }}</button>
             </form>
+
+
+
+
+
             <div class="auth-links">
                 <a href="{{ url(config('adminlte.login_url', 'login')) }}"
                    class="text-center">{{ trans('adminlte::adminlte.i_already_have_a_membership') }}</a>
