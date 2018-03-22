@@ -21,11 +21,10 @@ Auth::routes();
 
 Route::get('/admin', 'AdminController@index')->name('admin');
 
-Route::get('/vragen_toevoegen', function () {
-    return view('createCells/add');
-});
 
 Route::resources([
     'forms'=> 'FormsController',
-    'rows'=> 'RowsController'
+    'rows'=> 'RowsController',
+    'cells'=>'CellsController'
+
 ]);

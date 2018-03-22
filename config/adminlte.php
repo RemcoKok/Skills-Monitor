@@ -142,7 +142,7 @@ return [
                 ],
                 [
                     'text'    => 'Toevoegen',
-                    'url'     => '/vragen_toevoegen',
+                    'url'     => 'cells',
                 ],
                 [
                     'text' => 'Inzien',

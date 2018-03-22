@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class cells extends Controller
+class cellsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +13,7 @@ class cells extends Controller
      */
     public function index()
     {
-        //
+        return view('createCells.add');
     }
 
     /**
@@ -23,7 +23,9 @@ class cells extends Controller
      */
     public function create()
     {
-        //
+        $cells = Cells::all();
+
+        return view('createCells.add', compact( 'cells'));
     }
 
     /**
@@ -34,7 +36,7 @@ class cells extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return redirect('/home');
     }
 
     /**
