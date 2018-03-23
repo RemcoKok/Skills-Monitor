@@ -23,18 +23,19 @@
             @foreach($users as $user)
             <tr>
                 <td>{{$user->name}}</td>
-
                 <td>{{$user->email}}</td>
 
-                <td><select name="role"class= "form-control">
-                <option value="1">user</option>
-                <option value="0">admin</option> 
+                <td><select name="role" class="form-control" id="role">
+                <option value="1" @if($user->admin=='1')
+                selected="selected" @endif>admin</option>
+                <option value="0"  @if($user->admin=='' || $user->admin=='0')
+                selected="selected" @endif>user</<option>
                 </select>
+
                 </td>
             </tr>
             @endforeach
 
-  
             </tbody>
             </table>
 
