@@ -9,7 +9,7 @@
 @section('content')
     <p>You are logged in as a <strong>superadmin</strong></p>
 
-
+<!--user -> admin tabel-->
         <table class="table table-striped table-advance table-hover">
             <thead>
                     <tr>
@@ -24,8 +24,10 @@
             <tr>
                 <td>{{$user->name}}</td>
                 <td>{{$user->email}}</td>
-
+            <!--users worden uit database tabel 'users' gehaald en in tabel gezet.-->
                 <td><select name="role" class="form-control" id="role">
+
+            <!--keuze uit user en admin, veranderingen worden nog niet doorgevoerd naar database-->
                 <option value="1" @if($user->admin=='1')
                 selected="selected" @endif>admin</option>
                 <option value="0"  @if($user->admin=='' || $user->admin=='0')

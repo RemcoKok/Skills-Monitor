@@ -16,16 +16,19 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
-//Auth::routes();
-
-//Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/admin', 'AdminController@index')->name('admin');
-Route::get('/superadmin', 'SuperAdminController@index')->name('superadmin');
+//Route::get('/superadmin', 'SuperAdminController@index')->name('superadmin');
 
 Route::resources([
-    'users' => 'UserController'
+    'users' => 'UserController',
+    'forms'=> 'FormsController',
+    'rows'=> 'RowsController',
+    'cells'=>'CellsController'
+
 ]);
+
