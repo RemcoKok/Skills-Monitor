@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateEmptyFormTable extends Migration
+class CreateRatingScoresTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateEmptyFormTable extends Migration
      */
     public function up()
     {
-        Schema::create('emptyForms', function (Blueprint $table) {
+        Schema::create('rating_scores', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('title');
-            $table->string('competence');
+            $table->unsignedInteger('score_id');
+            $table->unsignedInteger('rating_id');
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ class CreateEmptyFormTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('empty_form');
+        Schema::dropIfExists('rating_scores');
     }
 }
