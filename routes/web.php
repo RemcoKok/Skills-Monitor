@@ -28,7 +28,7 @@ Route::resources([
     'users' => 'UserController',
     'forms'=> 'FormsController',
     'rows'=> 'RowsController',
-    'cells'=>'CellsController'
+    'Cell'=>'CellController'
 
 ]);
 
