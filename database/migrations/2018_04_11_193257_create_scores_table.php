@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSuperadminsTable extends Migration
+class CreateScoresTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class CreateSuperadminsTable extends Migration
      */
     public function up()
     {
-        Schema::create('superadmins', function (Blueprint $table) {
+        Schema::create('scores', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->string('password');
-            $table->rememberToken();
+            $table->unsignedInteger('cell_id');
+            $table->longText('comment');
             $table->timestamps();
         });
     }
@@ -30,6 +28,6 @@ class CreateSuperadminsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('superadmins');
+        Schema::dropIfExists('scores');
     }
 }

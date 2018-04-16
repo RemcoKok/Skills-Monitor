@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use DOMDocument;
 use Illuminate\Http\Request;
-use App\Rows;
-use App\Forms;
-class rowsController extends Controller
+
+class RowController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -25,7 +23,7 @@ class rowsController extends Controller
      */
     public function create()
     {
-         
+        //
     }
 
     /**
@@ -36,9 +34,7 @@ class rowsController extends Controller
      */
     public function store(Request $request)
     {
-                
-        
-        
+        //
     }
 
     /**

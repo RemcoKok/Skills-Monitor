@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateRowsTable extends Migration
+class CreateRatingsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,12 @@ class CreateRowsTable extends Migration
      */
     public function up()
     {
-        Schema::create('rows', function (Blueprint $table) {
-            $table->integer('id');
-            $table->integer('form_id')->unsigned();
-            $table->foreign('form_id')->references('id')->on('forms');
+        Schema::create('ratings', function (Blueprint $table) {
+            $table->increments('id');
+            $table->unsignedInteger('score_id');
+            $table->unsignedInteger('emptyForm_id');
+            $table->unsignedInteger('users_id_assessor');
+            $table->unsignedInteger('users_id_rated');
             $table->timestamps();
         });
     }
@@ -28,6 +30,6 @@ class CreateRowsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('rows');
+        Schema::dropIfExists('ratings');
     }
 }
