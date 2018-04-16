@@ -14,11 +14,10 @@ class CreateCellsTable extends Migration
     public function up()
     {
         Schema::create('cells', function (Blueprint $table) {
-            $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->integer('row_id');
-            $table->text('cellText');
-            $table->integer('level');
+            $table->unsignedInteger('row_id');
+            $table->string('cellText');
+            $table->integer('cellLevel');
             $table->timestamps();
         });
     }
