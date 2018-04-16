@@ -13,7 +13,7 @@ class CreateRankUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('rank_users', function (Blueprint $table) {
+        Schema::create('ranks_users', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('rank_id');
             $table->unsignedInteger('users_id');
