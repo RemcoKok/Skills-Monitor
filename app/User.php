@@ -26,4 +26,17 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function rank(){
+        return $this->belongsTo('App\Rank','rank_id');
+    }
+
+    public function hasrank($title){
+        $user_role = $this->role();
+        if(!is_null($user_role)){
+            $user_role = $user_role->role_name; //here is the problem with role_name
+
+        }
+        return ($user_role===$title)?true:false;
+    }
 }
