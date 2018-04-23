@@ -15,7 +15,7 @@
                     <label>
                         Formuliernaam
                     </label>
-                    <input type="string" class="form-control" placeholder="..." name="title">
+                    <input type="string" class="form-control" placeholder="Naam formulier" name="title">
                 </div>
             </form>
         </div>

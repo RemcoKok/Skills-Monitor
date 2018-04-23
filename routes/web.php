@@ -26,9 +26,11 @@ Route::get('/superadmin', 'SuperAdminController@index')->name('superadmin');
 
 Route::resources([
     'users' => 'UserController',
-    'forms'=> 'FormsController',
-    'rows'=> 'RowsController',
-    'Cell'=>'CellController'
 
+    'form'=> 'EmptyFormController',
+    'row'=> 'RowController',
+    'cell'=>'CellController',
+    'rating'=> 'RatingController',
+    'score'=> 'scoreController'
 ]);
 

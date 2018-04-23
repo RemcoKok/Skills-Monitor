@@ -3,11 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Rating;
-use App\EmptyForm;
-use App\User;
-use Auth;
-class RatingController extends Controller
+
+class CompetenceController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,17 +13,7 @@ class RatingController extends Controller
      */
     public function index()
     {
-        $users = User::all();
-
-        $id = Auth::user()->id;
-
-        $ratings = Rating::all()->where('users_id_assessor', $id);    
-
-        $ids= Rating::select('id')->where('users_id_assessor', $id)->get()->toarray();
-
-        $forms = \App\emptyForm::find($ids)->sortBy('competence');
-
-        return view("ratings.index", compact('ratings', 'forms', 'users' ,'id'));
+        //
     }
 
     /**
