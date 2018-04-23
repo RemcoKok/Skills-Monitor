@@ -26,9 +26,10 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resources([
     'users' => 'UserController',
-    'forms'=> 'FormsController',
-    'rows'=> 'RowsController',
-    'cells'=>'CellsController'
-
+    'form'=> 'EmptyFormController',
+    'row'=> 'RowController',
+    'cell'=>'CellController',
+    'rating'=> 'RatingController',
+    'score'=> 'scoreController'
 ]);
 

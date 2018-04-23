@@ -11,10 +11,12 @@
 @section('content')
 <script>
     $(document).ready(function(){
-        $('#rank').change(function(){
-            var rank_val = $('#rank').val();
+        <?php for($i=1;$i<15;$i++){?> 
+        $('#rank<?php echo $i;?>').change(function(){
+            var rank_val = $('#rank<?php echo $i;?>').val();
             alert(rank_val);
         });
+    <?php }?>
     });
 </script>
 
@@ -26,16 +28,15 @@
                         <th><i class="icon_calendar"></i> Role</th>
             </thead>
 
-            <tbody>
+            <tbody>           
 
-           
-
+            <?php $countRank = 1;?>
             @foreach($users as $user)
             <tr>
                 <td>{{$user->name}}</td>
                 <td>{{$user->email}}</td>
 
-                <td><select name="rank"class= "form-control" id="rank">
+                <td><select name="rank"class= "form-control" id="rank <?php echo $countRank;?>">
                 <option value="1" @if($user->student=='1') 
                 selected="selected" @endif >student</option>
                 <option value="0" @if($user->docent=='0') 
@@ -48,8 +49,8 @@
                 </td>
                 
             </tr>
+            <?php $countRank++;?>
             @endforeach
-
   
              </tbody>
             </table>

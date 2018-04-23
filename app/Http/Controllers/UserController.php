@@ -12,5 +12,12 @@ class UserController extends Controller
         return view('superadmin', compact('users'));
     }
 
-   
+    public function updateRank(Request $request){
+        $userId = $request->userID;
+         $rank_val = $request->rank_val;
+        $update_rank = DB::table('users')->where('id',$userId)->update(['admin' =>$rank_val]);
+        if($update_rank){
+          echo "rank is updated successfully";
+        }
+      }
 }
