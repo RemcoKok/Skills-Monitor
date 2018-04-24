@@ -13,7 +13,7 @@ class CellController extends Controller
      */
     public function index()
     {
-        return view('forms/createform');
+        //
     }
 
     /**
@@ -32,9 +32,8 @@ class CellController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, \App\EmptyForm $form)
     {
-        //
     }
 
     /**
