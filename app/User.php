@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Zizaco\Entrust\Traits\EntrustUserTrait; 
 
 class User extends Authenticatable
 {
@@ -29,14 +30,5 @@ class User extends Authenticatable
 
     public function rank(){
         return $this->belongsTo('App\Rank','rank_id');
-    }
-
-    public function hasrank($title){
-        $user_role = $this->role();
-        if(!is_null($user_role)){
-            $user_role = $user_role->role_name; //here is the problem with role_name
-
-        }
-        return ($user_role===$title)?true:false;
     }
 }
