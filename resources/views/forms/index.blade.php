@@ -4,19 +4,19 @@
 
 @section('content_header')
     <h1>STUDENT Dashboard </h1>
+
 @stop
 
 @section('content')
     <div class="box">
-        foreach ($emptyForms as $emptyForm) {
-            echo $emptyForm->title;
 
         <div class="box-header">
             <h3 class="box-title">Responsive Hover Table</h3>
+            <button class="btn btn-info" onclick="location.href='{{ url("/form/") }}'">Nieuw formulier</button>
 
             <div class="box-tools">
                 <div class="input-group input-group-sm" style="width: 150px;">
-                    <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
+                    <input type="text" name="table_search" class="form-control" placeholder="Search">
 
                     <div class="input-group-btn">
                         <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
