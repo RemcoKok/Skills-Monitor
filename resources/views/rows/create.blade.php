@@ -53,7 +53,8 @@
                     <textarea class="form-control" rows="3" placeholder="Enter description"
                               name="cell[]"></textarea>
                 </div>
-                <button type="submit" class="btn btn-primary pull-right">Submit</button>
+                <button type="submit" class="btn btn-primary pull-right" onclick="location.href='{{ url("/form/show/") }}'">Submit</button>
+
 
                 </form>
 

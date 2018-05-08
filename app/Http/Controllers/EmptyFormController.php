@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\EmptyForm;
 
 class EmptyFormController extends Controller
 {
@@ -13,7 +14,8 @@ class EmptyFormController extends Controller
      */
     public function index()
     {
-        return view('forms.show');
+        $empty_forms = EmptyForm::all()->toArray();
+        return view('forms.index', compact('empty_forms'));
     }
 
     /**
@@ -23,7 +25,7 @@ class EmptyFormController extends Controller
      */
     public function create()
     {
-        //
+        return view('forms.create');
     }
 
     /**
@@ -45,7 +47,8 @@ class EmptyFormController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('forms.show');
+
     }
 
     /**
@@ -56,7 +59,7 @@ class EmptyFormController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('forms.edit');
     }
 
     /**

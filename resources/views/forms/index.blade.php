@@ -12,7 +12,7 @@
 
         <div class="box-header">
             <h3 class="box-title">Responsive Hover Table</h3>
-            <button class="btn btn-info" onclick="location.href='{{ url("/form/") }}'">Nieuw formulier</button>
+            <button class="btn btn-info" onclick="location.href='{{ url("/form/create/") }}'">Nieuw formulier</button>
 
             <div class="box-tools">
                 <div class="input-group input-group-sm" style="width: 150px;">
@@ -38,6 +38,12 @@
                     <td>Software analyseren1</td>
                     <td><button><i class="fa fa-pencil"></i> Aanpassen formulier</button></td>
                 </tr>
+                @foreach($empty_forms as $row)
+                    <tr>
+                        <td>{{$row['title']}}</td>
+                        <td>{{$row['competence_id']}}</td>
+                    </tr>
+                @endforeach
                 <tr>
                     <td>SBE1</td>
                     <td>Software beheren</td>

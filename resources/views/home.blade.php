@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'AdminLTE')
+@section('title', 'Home')
 
 @section('content_header')
     <h1>STUDENT Dashboard </h1>
