@@ -34,31 +34,15 @@
                     <th>Aanpassen formulier</th>
                 </tr>
                 <tr>
-                    <td>SAN1</td>
-                    <td>Software analyseren1</td>
-                    <td><button><i class="fa fa-pencil"></i> Aanpassen formulier</button></td>
-                </tr>
-                @foreach($empty_forms as $row)
+
+                @foreach($empty_forms as $empty_form)
                     <tr>
-                        <td>{{$row['title']}}</td>
-                        <td>{{$row['competence_id']}}</td>
+                        <td>{{$empty_form->title}}</td>
+                        <td>{{$empty_form->competence_id}}</td>
+                        <td><button><i class="fa fa-pencil"></i> Aanpassen formulier</button></td>
                     </tr>
                 @endforeach
-                <tr>
-                    <td>SBE1</td>
-                    <td>Software beheren</td>
-                    <td><button><i class="fa fa-pencil"></i> Aanpassen formulier</button></td>
-                </tr>
-                <tr>
-                    <td>SON1</td>
-                    <td>Bob Doe</td>
-                    <td><button><i class="fa fa-pencil"></i> Aanpassen formulier</button></td>
-                </tr>
-                <tr>
-                    <td>175</td>
-                    <td>Mike Doe</td>
-                    <td><button><i class="fa fa-pencil"></i> Aanpassen formulier</button></td>
-                </tr>
+
                 </tbody>
             </table>
         </div>

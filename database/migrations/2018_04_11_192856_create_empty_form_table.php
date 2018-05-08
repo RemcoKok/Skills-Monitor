@@ -16,7 +16,7 @@ class CreateEmptyFormTable extends Migration
         Schema::create('empty_forms', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title');
-            $table->string('competence_id');
+            $table->unsignedInteger('competence_id');
             $table->timestamps();
         });
     }

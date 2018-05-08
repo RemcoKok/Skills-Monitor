@@ -8,24 +8,39 @@
 
 @section('content')
 
-        <div class="form-group">
-            <label class="col-sm-2 control-label">Formulier naam</label>
 
-            <div class="col-sm-7">
-                <input type="text" class="form-control" placeholder="Formulier naam"><br>
-            </div>
+    <div class="row">
+        <div class="col-md-12">
+            <br />
+            <h3 align="center">Add Data</h3>
+            <br />
+            @if(count($errors) > 0)
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach($errors->all() as $error)
+                            <li>{{$error}}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+            @if(\Session::has('success'))
+                <div class="alert alert-success">
+                    <p>{{ \Session::get('success') }}</p>
+                </div>
+            @endif
 
-        </div>
-        <div>
-        <label class="col-sm-4 control-label">Competentie</label>
-        <div class="col-sm-7">
-            <select class="form-control">
-                <option>SAN 1</option>
-                <option>option 2</option>
-                <option>option 3</option>
-                <option>option 4</option>
-                <option>option 5</option>
-            </select>
+            <form method="post" action="{{route('form.store')}}">
+                {{csrf_field()}}
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Enter Name" name="title"/>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Enter competence" name="competence_id"/>
+                </div>
+                <div class="form-group">
+                    <input type="submit" class="btn btn-primary" />
+                </div>
+            </form>
         </div>
     </div>
     <button class="btn btn-info" onclick="location.href='{{ url("/form/show/") }}'">Opslaan</button>

@@ -17,10 +17,21 @@
 
             <div class="box-body">
                 <div class="box-header with-border">
-                    <h3 class="box-title">Naam opgehaald uit de database</h3><br><br>
-                    <h3 class="box-title">Competentie opgehaald uit de database</h3>
+                  <h3> Naam formulier:
+                        <tr>
+                            <td>{{$empty_form->title}}</td>
+                        </tr>
+                  </h3>
+                    <h3> Competentie:
+                            <tr>
+                                <td>{{$empty_form->competence_id}}</td>
+                            </tr>
+                    </h3>
+
+
                     <button class="btn btn-primary pull-right" onclick="location.href='{{ url("/form/create/") }}'">Wijzig naam/competentie</button>
                 </div>
+
 
                 <div class="callout callout-warning">
                     <button class="btn btn-primary pull-right" onclick="location.href='{{ url("/row/create/") }}'">Voeg rij toe</button>
