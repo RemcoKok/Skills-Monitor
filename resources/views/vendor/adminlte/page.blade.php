@@ -103,19 +103,24 @@
 
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
+
+    
+        <section class="content">
+                @yield('content')
+        
             @if(config('adminlte.layout') == 'top-nav')
             <div class="container">
             @endif
 
             <!-- Content Header (Page header) -->
             <section class="content-header">
+            
                 @yield('content_header')
             </section>
+            
 
             <!-- Main content -->
-            <section class="content">
-
-                @yield('content')
+            
 
             </section>
             <!-- /.content -->
@@ -125,7 +130,7 @@
             @endif
         </div>
         <!-- /.content-wrapper -->
-
+        
     </div>
     <!-- ./wrapper -->
 @stop

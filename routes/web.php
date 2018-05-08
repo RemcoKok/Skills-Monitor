@@ -20,12 +20,26 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::group(['middleware' => ['auth', 'role:admin']], function () {
+    Route::post('users/active_deactive', 'UserController@activeDeactive')->name('users.active_deactive');
+    Route::post('users/change_role', 'UserController@changeRole')->name('users.change_role');
+    Route::get('users', 'UserController@index')->name('superadmin');
+    
+  });
+
+  Route::get('lang/{lang}', function($lang) {
+    \Session::put('lang', $lang);
+    return \Redirect::back();
+  })->middleware('web')->name('change_lang');
+  
+
 Route::get('/home', 'HomeController@index')->name('home');
+
 //Route::get('/admin', 'AdminController@index')->name('admin');
-//Route::get('/superadmin', 'SuperAdminController@index')->name('superadmin');
+//Route::get('/users', 'SuperAdminController@index')->name('superadmin');
 
 Route::resources([
-    'users' => 'UserController',
+    // 'users' => 'UserController',
     'form'=> 'EmptyFormController',
     'row'=> 'RowController',
     'cell'=>'CellController',

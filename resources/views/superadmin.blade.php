@@ -3,37 +3,77 @@
 @section('title', 'AdminLTE')
 
 @section('content_header')
-    <h1>SUPERADMIN Dashboard </h1>
+
 @stop
 
 @section('content')
-    <table class="table table-striped table-advance table-hover">
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+        <h3>Gebruikers tabel</h3>
+           
+    <table class="table table-striped table-advance">
         <thead>
             <tr>
-                <th><i class="icon_profile"></i> Naam</th>
-                <th><i class="icon_mail_alt"></i> Email</th>
-                <th><i class="icon_calendar"></i> Rang</th>
+                <th>#</th>
+                <th> Naam</th>
+                <th> Email</th>
+                <th> Rang</th>
+                <th>Opties</th>
             </tr>
         </thead>
         <tbody>           
             @foreach($users as $user)
-                <tr>
+            <tr class="{{ ($user->active == 0) ? 'danger' : '' }}">
+                    <td>{{ $user->id }}</td>
                     <td>{{$user->name}}</td>
                     <td>{{$user->email}}</td>
 
                     <td>
-                        <select name="rank"class= "form-control" id="rank">
-                            @foreach($ranks as $rank)
-                                <option value='{{$rank->id}}'>{{$rank->rankName}}</option>
+                    @foreach ($user->roles()->pluck('name') as $role)
+                                <span class="label label-default">{{ $role }}</span>
                             @endforeach
-                        </select>
                     </td>
+                    <td>
+                        @if (Auth::id() != $user->id)
+ 
+                            <button type="button" class="btn-modal-change-role btn btn-info btn-sm" 
+                            data-userid="{{ $user->id }}" data-toggle = "modal" data-target = "#roleModal" data-userrole="{{ $role }}">Verander rang</button>
+    
+                            {{ Form::open(['route' => ['users.active_deactive'], 'method' => 'POST']) }}
+                                {{ Form::hidden('user_id', $user->id) }}
+                                {{ Form::submit(($user->active == 0) ? 'Activeer' : 'Deactiveer', 
+                                    ['name' => 'submit', 'class' => 'btn btn-warning btn-sm']) }}
+                            {{ Form::close() }}
+                        @endif
+            
                     
+                    </td>
                 </tr>
+
             @endforeach
-  
         </tbody>
     </table>
+</div>
+</div>
+</div>
     
+        <div class="modal fade" style = "overflow:hidden;" id="roleModal" aria-labelledby = "modallabel" role="dialog">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3>Verander rang</h3>
+                    </div>
+                    <div class="modal-body">
+                        {{ Form::open(['route' => ['users.change_role'], 'method' => 'POST']) }}
+                            {{ Form::hidden('user_id') }}
+                            <p>{{ Form::select('role', $roles, null, ['class' => 'form-control']) }}</p>
+                            {{ Form::submit('Change', ['name' => 'submit', 'class' => 'btn btn-success btn-block btn-change-role']) }}
+                        {{ Form::close() }}
+                    </div>
+                </div>
+            </div>
+        </div>
+
 @endsection
 

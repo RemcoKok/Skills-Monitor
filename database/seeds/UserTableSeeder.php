@@ -1,10 +1,11 @@
 <?php
+ 
 use Illuminate\Database\Seeder;
+ 
 use App\User;
-use App\Rank;
-
-class UserTableSeeder extends Seeder {
-
+ 
+class UserTableSeeder extends Seeder
+{
     /**
      * Run the database seeds.
      *
@@ -12,11 +13,20 @@ class UserTableSeeder extends Seeder {
      */
     public function run()
     {
-    //users aanmaken
         $user = App\User::make([
             'name' => 'Hasina Noori',
             'email' => 'noor0041@hz.nl',
         ]);
         $user->password = bcrypt('Skillsmonitorgang');
-        $user->save();     }
-  }
+        $user->save();    
+
+        factory(User::class, 5)->create()->each(function($u) {
+            if ($u->id == 1) {
+            $u->assignRole('admin');
+            } else {
+            $u->assignRole('docent');
+            }
+        });
+    }
+}
+

@@ -28,7 +28,6 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                     
-
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -54,7 +53,7 @@
                                         @csrf
                                     </form>
                                 </div>
-                            </li>
+                            
                         @endguest
                     </ul>
                 </div>
