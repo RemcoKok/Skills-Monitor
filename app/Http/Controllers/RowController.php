@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\EmptyForm;
+use App\Cell;
 
 class RowController extends Controller
 {
@@ -35,16 +36,14 @@ class RowController extends Controller
      */
     public function store(Request $request, EmptyForm $form)
     {
-        // 1. ee nieuwe row aanmaken
-        $row = $form->rows()->create([]);
-        // 2. voor alle cells in request
-        foreach($request['cell'] as $cell_info)
-        {
-            // 2.1 nwe cell toevoegen aan row
-            $row->cells()->create([$cell_info]);
-        }
-
-        //3. redirect naar ?
+        $this->validate($request, [
+            'cell_text' => 'required'
+        ] );
+        $cell = new Cell([
+            'cell_text' => $request->get('cell_text')
+        ]);
+        $cell->save();
+        return redirect()->route('form.show')->with('success', 'Data Added');
     }
 
     /**

@@ -17,41 +17,43 @@
             </div>
 
             <div class="box-body">
+                <form method="post" action="{{route('row.create')}}">
+                    {{csrf_field()}}
 
                 <div class="form-group">
                     <label>Vul cel 1 in</label>
-                    <textarea class="form-control" rows="3" placeholder="Enter description"
-                              name="cell[]"></textarea>
+                    <textarea class="form-control" type="text" rows="3" placeholder="Enter description"
+                              name="cell_text[]"></textarea>
                 </div>
 
                 <div class="form-group">
                     <label>Vul cel 2 in</label>
-                    <textarea class="form-control" rows="3" placeholder="Enter description"
-                              name="cell[]"></textarea>
+                    <textarea class="form-control" type="text" rows="3" placeholder="Enter description"
+                              name="cell_text[]"></textarea>
                 </div>
 
                 <div class="form-group">
                     <label>Vul cel 3 in</label>
-                    <textarea class="form-control" rows="3" placeholder="Enter description"
-                              name="cell[]"></textarea>
+                    <textarea class="form-control" type="text" rows="3" placeholder="Enter description"
+                              name="cell_text[]"></textarea>
                 </div>
 
                 <div class="form-group">
                     <label>Vul cel 4 in</label>
-                    <textarea class="form-control" rows="3" placeholder="Enter description"
-                              name="cell[]"></textarea>
+                    <textarea class="form-control" type="text" rows="3" placeholder="Enter description"
+                              name="cell_text[]"></textarea>
                 </div>
 
                 <div class="form-group">
                     <label>Vul cel 5 in</label>
-                    <textarea class="form-control" rows="3" placeholder="Enter description"
-                              name="cell[]"></textarea>
+                    <textarea class="form-control" type="text" rows="3" placeholder="Enter description"
+                              name="cell_text[]"></textarea>
                 </div>
 
                 <div class="form-group">
                     <label>Vul cel 6 in</label>
-                    <textarea class="form-control" rows="3" placeholder="Enter description"
-                              name="cell[]"></textarea>
+                    <textarea class="form-control" type="text" rows="3" placeholder="Enter description"
+                              name="cell_text[]"></textarea>
                 </div>
                 <button type="submit" class="btn btn-primary pull-right" onclick="location.href='{{ url("/form/show/") }}'">Submit</button>
 

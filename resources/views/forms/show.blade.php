@@ -17,12 +17,12 @@
 
             <div class="box-body">
                 <div class="box-header with-border">
-                  <h3> Naam formulier:
+                  <h3> Naam formulier
                         <tr>
                             <td>{{$empty_form->title}}</td>
                         </tr>
                   </h3>
-                    <h3> Competentie:
+                    <h3> Competentie
                             <tr>
                                 <td>{{$empty_form->competence_id}}</td>
                             </tr>
