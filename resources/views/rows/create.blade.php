@@ -16,8 +16,10 @@
                 <h2 class="box-title">Vul hieronder de cellen in om een nieuwe rij te maken.</h2>
             </div>
 
+
+
             <div class="box-body">
-                <form method="post" action="{{route('row.create')}}">
+                <form method="post" action="store {{route('row.create')}}">
                     {{csrf_field()}}
 
                 <div class="form-group">
@@ -55,7 +57,7 @@
                     <textarea class="form-control" type="text" rows="3" placeholder="Enter description"
                               name="cell_text[]"></textarea>
                 </div>
-                <button type="submit" class="btn btn-primary pull-right" onclick="location.href='{{ url("/form/show/") }}'">Submit</button>
+                <button type="submit" class="btn btn-primary pull-right" onclick="location.href='{{ url("/form/show/") }}'" >Opslaan</button>
 
 
                 </form>

@@ -17,12 +17,12 @@
 
             <div class="box-body">
                 <div class="box-header with-border">
-                  <h3> Naam formulier
+                  <h3> Naam formulier:
                         <tr>
                             <td>{{$empty_form->title}}</td>
                         </tr>
                   </h3>
-                    <h3> Competentie
+                    <h3> Competentie:
                             <tr>
                                 <td>{{$empty_form->competence_id}}</td>
                             </tr>
@@ -37,7 +37,6 @@
                     <button class="btn btn-primary pull-right" onclick="location.href='{{ url("/row/create/") }}'">Voeg rij toe</button>
 
                     <h4>Er zijn nog geen rijen beschikbaar</h4>
-                    <p>Rijen opgehaald uit de database</p>
                 </div>
                 <button class="btn btn-primary pull-right" onclick="location.href='{{ url("/list/") }}'">Opslaan</button>
 
