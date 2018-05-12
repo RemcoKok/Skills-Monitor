@@ -7,6 +7,9 @@
     @yield('css')
 @stop
 
+<!-- CSRF Token -->
+<meta name="csrf-token" content="{{ csrf_token() }}">
+
 @section('body_class', 'skin-' . config('adminlte.skin', 'blue') . ' sidebar-mini ' . (config('adminlte.layout') ? [
     'boxed' => 'layout-boxed',
     'fixed' => 'fixed',
@@ -14,10 +17,12 @@
 ][config('adminlte.layout')] : '') . (config('adminlte.collapse_sidebar') ? ' sidebar-collapse ' : ''))
 
 @section('body')
+
     <div class="wrapper">
 
         <!-- Main Header -->
         <header class="main-header">
+        
             @if(config('adminlte.layout') == 'top-nav')
             <nav class="navbar navbar-static-top">
                 <div class="container">
