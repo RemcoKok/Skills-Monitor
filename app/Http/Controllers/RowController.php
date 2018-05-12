@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\EmptyForm;
-use App\Cell;
 
 class RowController extends Controller
 {
@@ -47,9 +46,9 @@ class RowController extends Controller
             //2.1 nieuwe cell toevoegen aan row
             $row->cells()->create([$cell_info]);
         }
-
-        //3. redirect naar zelfde pagina
+//3. redirect naar zelfde pagina
         return redirect('form/show');
+
     }
 
         /**

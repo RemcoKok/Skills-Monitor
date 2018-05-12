@@ -34,7 +34,7 @@
 
 
                 <div class="callout callout-warning">
-                    <button class="btn btn-primary pull-right" onclick="location.href='{{ url("/row/create/") }}'">Voeg rij toe</button>
+                    <button class="btn btn-primary pull-right" onclick="location.href='{{ url("form/9/row/create/") }}'">Voeg rij toe</button>
 
                     <h4>Er zijn nog geen rijen beschikbaar</h4>
                 </div>

@@ -22,11 +22,12 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+
 Route::resources([
     'users' => 'UserController',
 
     'form' => 'EmptyFormController',
-    'form/{form}/row' => 'RowController',
+    'form/9/row' => 'RowController',
     'row' => 'RowController',
     'cell' => 'CellController',
     'rating' => 'RatingController',
