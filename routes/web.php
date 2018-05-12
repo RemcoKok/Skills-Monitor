@@ -25,13 +25,7 @@ Route::group(['middleware' => ['auth', 'role:admin']], function () {
     Route::post('users/change_role', 'UserController@changeRole')->name('users.change_role');
     Route::get('users', 'UserController@index')->name('superadmin');
     
-  });
-
-  Route::get('lang/{lang}', function($lang) {
-    \Session::put('lang', $lang);
-    return \Redirect::back();
-  })->middleware('web')->name('change_lang');
-  
+  });  
 
 Route::get('/home', 'HomeController@index')->name('home');
 

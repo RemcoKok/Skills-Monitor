@@ -22,9 +22,9 @@ class UserController extends Controller
           $user = User::findOrFail($request->user_id);
           $user->active = !$user->active;
           $user->save();
-          return redirect()->route("superadmin")->with('success', $user->name." status has been changed!");
+          return redirect()->route("superadmin")->with('success', $user->name." heeft een andere status gekregen!");
         } else  {
-          return redirect()->back()->withErrors(['You can\'t change your status!']);
+          return redirect()->back()->withErrors(['Je kan de status niet veranderen!']);
         }
       } 
 
@@ -32,9 +32,9 @@ class UserController extends Controller
         if (Auth::id() != $request->user_id) {
           $user = User::findOrFail($request->user_id);
           $user->syncRoles($request->role);
-          return redirect()->route("superadmin")->with('success', $user->name." role has been changed!");
+          return redirect()->route("superadmin")->with('success', $user->name." heeft een andere rang gekregen!");
         } else  {
-          return redirect()->back()->withErrors(['You can\'t change your role!']);
+          return redirect()->back()->withErrors(['Je kan de rang niet veranderen!']);
         }
       }
 }

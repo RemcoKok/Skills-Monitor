@@ -10,6 +10,11 @@
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
+            @if(session()->has('success'))
+                <div class="alert alert-success">
+                    {{ session()->get('success') }}
+                </div>
+            @endif
         <h3>Gebruikers tabel</h3>
            
     <table class="table table-striped table-advance">
@@ -46,8 +51,6 @@
                                     ['name' => 'submit', 'class' => 'btn btn-warning btn-sm']) }}
                             {{ Form::close() }}
                         @endif
-            
-                    
                     </td>
                 </tr>
 
@@ -68,7 +71,7 @@
                         {{ Form::open(['route' => ['users.change_role'], 'method' => 'POST']) }}
                             {{ Form::hidden('user_id') }}
                             <p>{{ Form::select('role', $roles, null, ['class' => 'form-control']) }}</p>
-                            {{ Form::submit('Change', ['name' => 'submit', 'class' => 'btn btn-success btn-block btn-change-role']) }}
+                            {{ Form::submit('Opslaan', ['name' => 'submit', 'class' => 'btn btn-success btn-block btn-change-role']) }}
                         {{ Form::close() }}
                     </div>
                 </div>
