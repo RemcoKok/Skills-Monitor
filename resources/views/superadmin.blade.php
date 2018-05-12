@@ -42,8 +42,9 @@
                     <td>
                         @if (Auth::id() != $user->id)
  
-                            <button type="button" class="btn-modal-change-role btn btn-info btn-sm" 
-                            data-userid="{{ $user->id }}" data-toggle = "modal" data-target = "#roleModal" data-userrole="{{ $role }}">Verander rang</button>
+                        <button type="button" class="btn-modal-change-role btn btn-info btn-sm" data-userid="{{ $user->id }}" 
+                        data-userrole="{{ $role }}">Verander rang</button>
+
     
                             {{ Form::open(['route' => ['users.active_deactive'], 'method' => 'POST']) }}
                                 {{ Form::hidden('user_id', $user->id) }}
