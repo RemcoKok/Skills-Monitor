@@ -115,8 +115,8 @@ return [
             'can'  => 'manage-blog',
         ],
         [
-            'text'        => 'openstaande fomrulieren',
-            'url'         => 'rating',
+            'text'        => 'Pages',
+            'url'         => 'admin/pages',
             'icon'        => 'file',
             'label'       => 4,
             'label_color' => 'success',

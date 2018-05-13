@@ -6,11 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class EmptyForm extends Model
 {
-
-    public function competence() {
-        $this->belongsTo('App\Competence', 'competence_id', 'id');
-    }    
-  
     /**
      * The attributes that are mass assignable.
      *
@@ -22,5 +17,4 @@ class EmptyForm extends Model
     {
         return $this->hasMany('App\Row');
     }
-
 }
