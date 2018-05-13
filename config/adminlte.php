@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'title' => 'AdminLTE 2',
+    'title' => 'Skills-Monitor',
 
     'title_prefix' => '',
 
@@ -140,12 +140,12 @@ return [
 
             'submenu' => [
                 [
-                    'text' => 'Aanmaken',
-                    'url'  => '#',
+                    'text' => 'Alle formulieren',
+                    'url'  => 'list',
                 ],
                 [
-                    'text'    => 'Toevoegen',
-                    'url'     => 'cells',
+                    'text'    => 'Nieuw formulier',
+                    'url'     => 'form/create',
                 ],
                 [
                     'text' => 'Inzien',
