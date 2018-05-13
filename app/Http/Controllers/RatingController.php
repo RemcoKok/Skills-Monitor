@@ -59,7 +59,7 @@ class RatingController extends Controller
      */
     public function show($id)
     {  
-        
+        $ratings = array();
         $ratings = DB::table('ratings')
         ->where('ratings.id', (int)$id)
         ->select('users.*','empty_forms.*', 'competences.title as competence')
