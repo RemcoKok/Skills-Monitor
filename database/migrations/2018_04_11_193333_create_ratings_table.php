@@ -18,6 +18,8 @@ class CreateRatingsTable extends Migration
             $table->unsignedInteger('emptyForm_id');
             $table->unsignedInteger('users_id_assessor');
             $table->unsignedInteger('users_id_rated');
+            $table->integer('graded');
+            $table->integer('status');
             $table->timestamps();
         });
     }
