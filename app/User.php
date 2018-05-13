@@ -30,6 +30,7 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+
     public function rank(){
         return $this->belongsTo('App\Rank','rank_id');
     }
