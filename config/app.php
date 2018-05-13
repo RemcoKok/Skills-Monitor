@@ -165,16 +165,18 @@ return [
         /*
          * Package Service Providers...
          */
-
+        Spatie\Permission\PermissionServiceProvider::class,    
+            
         /*
          * Application Service Providers...
          */
-        JeroenNoten\LaravelAdminLte\ServiceProvider::class,
+        JeroenNoten\LaravelAdminLte\ServiceProvider::class, 
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        'Collective\Html\HtmlServiceProvider', 
 
     ],
 
@@ -191,6 +193,8 @@ return [
 
     'aliases' => [
 
+        'Form' => 'Collective\Html\FormFacade', 
+        'Html' => 'Collective\Html\HtmlFacade',
         'App' => Illuminate\Support\Facades\App::class,
         'Artisan' => Illuminate\Support\Facades\Artisan::class,
         'Auth' => Illuminate\Support\Facades\Auth::class,

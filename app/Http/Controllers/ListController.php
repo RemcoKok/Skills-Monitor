@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Catalogus;
+use DB;
 
-class RankController extends Controller
+class ListController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +16,9 @@ class RankController extends Controller
      */
     public function index()
     {
-        //
+        $emptyForms = DB::table('empty_forms')->select('title', 'competence_id')->get();
+
+        return view ('forms.index', ['empty_forms'=> $emptyForms]);
     }
 
     /**
