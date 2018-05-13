@@ -20,16 +20,31 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::group(['middleware' => ['auth', 'role:admin']], function () {
+    Route::post('users/active_deactive', 'UserController@activeDeactive')->name('users.active_deactive');
+    Route::post('users/change_role', 'UserController@changeRole')->name('users.change_role');
+    Route::get('users', 'UserController@index')->name('superadmin');
+    
+  });  
+
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/admin', 'AdminController@index')->name('admin');
-Route::get('/superadmin', 'SuperAdminController@index')->name('superadmin');
+//Route::get('/admin', 'AdminController@index')->name('admin');
+//Route::get('/users', 'SuperAdminController@index')->name('superadmin');
+
+
 
 Route::resources([
     'users' => 'UserController',
-    'form'=> 'EmptyFormController',
-    'row'=> 'RowController',
-    'cell'=>'CellController',
-    'rating'=> 'RatingController',
-    'score'=> 'scoreController'
+
+    'form' => 'EmptyFormController',
+    'form/9/row' => 'RowController',
+    'row' => 'RowController',
+    'cell' => 'CellController',
+    'rating' => 'RatingController',
+    'score' => 'scoreController',
+    'list' => 'ListController'
+
 ]);
+
+
 

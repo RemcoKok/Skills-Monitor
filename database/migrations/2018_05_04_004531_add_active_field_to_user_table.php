@@ -1,10 +1,10 @@
 <?php
-
+ 
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-
-class CreateRanksTable extends Migration
+ 
+class AddActiveFieldToUserTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,11 @@ class CreateRanksTable extends Migration
      */
     public function up()
     {
-        Schema::create('ranks', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('rankName');
-            $table->timestamps();
+        Schema::table('users', function(Blueprint $table) {
+            $table->boolean('active')->default(1);
         });
     }
-
+ 
     /**
      * Reverse the migrations.
      *
@@ -27,6 +25,8 @@ class CreateRanksTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ranks');
+        Schema::table('users', function(Blueprint $table) {
+            $table->dropColumn('active');
+        });
     }
 }

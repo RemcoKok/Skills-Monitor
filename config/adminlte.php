@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'title' => 'AdminLTE 2',
+    'title' => 'Skills-Monitor',
 
     'title_prefix' => '',
 
@@ -115,8 +115,8 @@ return [
             'can'  => 'manage-blog',
         ],
         [
-            'text'        => 'openstaande fomrulieren',
-            'url'         => 'rating',
+            'text'        => 'Pages',
+            'url'         => 'admin/pages',
             'icon'        => 'file',
             'label'       => 4,
             'label_color' => 'success',
@@ -140,12 +140,12 @@ return [
 
             'submenu' => [
                 [
-                    'text' => 'Aanmaken',
-                    'url'  => '#',
+                    'text' => 'Alle formulieren',
+                    'url'  => 'list',
                 ],
                 [
-                    'text'    => 'Toevoegen',
-                    'url'     => 'cells',
+                    'text'    => 'Nieuw formulier',
+                    'url'     => 'form/create',
                 ],
                 [
                     'text' => 'Inzien',
