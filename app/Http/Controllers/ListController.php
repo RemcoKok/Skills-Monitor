@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\EmptyForm;
+use App\Http\Controllers\Controller;
+use App\Catalogus;
+use DB;
 
-class EmptyFormController extends Controller
+class ListController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +16,9 @@ class EmptyFormController extends Controller
      */
     public function index()
     {
-        $empty_forms = EmptyForm::all()->toArray();
-        return view('forms.index', compact('empty_forms'));
+        $emptyForms = DB::table('empty_forms')->select('title', 'competence_id')->get();
+
+        return view ('forms.index', ['empty_forms'=> $emptyForms]);
     }
 
     /**
@@ -25,60 +28,47 @@ class EmptyFormController extends Controller
      */
     public function create()
     {
-        return view('forms.create');
-
+        //
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'title' => 'required',
-            'competence_id' => 'required'
-        ]);
-
-        $empty_form = EmptyForm::create([
-            'title' => $request->get('title'),
-            'competence_id' => $request->get('competence_id')
-        ]);
-
-        $id = $empty_form->id;
-        return redirect()->route('form.show', ['id' => $id])->with('success', 'Data Added');
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int $id
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        $empty_form = EmptyForm::all()->where('id', '=', $id)->pop();
-        return view('forms/show')->with(["empty_form" => $empty_form]);
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int $id
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        return view('forms.edit');
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
-     * @param  int $id
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -89,7 +79,7 @@ class EmptyFormController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int $id
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

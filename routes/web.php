@@ -28,16 +28,23 @@ Route::group(['middleware' => ['auth', 'role:admin']], function () {
   });  
 
 Route::get('/home', 'HomeController@index')->name('home');
-
 //Route::get('/admin', 'AdminController@index')->name('admin');
 //Route::get('/users', 'SuperAdminController@index')->name('superadmin');
 
+
+
 Route::resources([
-    // 'users' => 'UserController',
-    'form'=> 'EmptyFormController',
-    'row'=> 'RowController',
-    'cell'=>'CellController',
-    'rating'=> 'RatingController',
-    'score'=> 'scoreController'
+    'users' => 'UserController',
+
+    'form' => 'EmptyFormController',
+    'form/9/row' => 'RowController',
+    'row' => 'RowController',
+    'cell' => 'CellController',
+    'rating' => 'RatingController',
+    'score' => 'scoreController',
+    'list' => 'ListController'
+
 ]);
+
+
 
