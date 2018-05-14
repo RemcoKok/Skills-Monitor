@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Rating;
-use App\EmptyForm;
-use App\User;
 use Auth;
+use DB;
+
 class RatingController extends Controller
 {
     /**
@@ -16,17 +16,18 @@ class RatingController extends Controller
      */
     public function index()
     {
-        $users = User::all();
-
         $id = Auth::user()->id;
 
-        $ratings = Rating::all()->where('users_id_assessor', $id);    
-
-        $ids= Rating::select('id')->where('users_id_assessor', $id)->get()->toarray();
-
-        $forms = \App\emptyForm::find($ids)->sortBy('competence');
-
-        return view("ratings.index", compact('ratings', 'forms', 'users' ,'id'));
+        
+        $ratings = DB::table('ratings')
+        ->select('users.id as user_id', 'ratings.id as rating_id', 'empty_forms.id as empty_form_id', 'users.name', 'empty_forms.title as empty_form_title', 'competences.title as competenceTitle', 'ratings.status as status')
+        ->where('ratings.users_id_assessor', (int)$id)
+        ->join('users', 'ratings.users_id_assessor', '=', 'users.id')
+        ->join('empty_forms', 'ratings.emptyForm_id', '=', 'empty_forms.id')
+        ->join('competences', 'empty_forms.competence_id', '=', 'competences.id')
+        ->get();
+        return view("ratings.index", compact('ratings'));
+        
     }
 
     /**
@@ -57,8 +58,24 @@ class RatingController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
-        //
+    {  
+        $ratings = array();
+        $ratings = DB::table('ratings')
+        ->where('ratings.id', (int)$id)
+        ->select('users.*','empty_forms.*', 'competences.title as competence')
+        ->join('empty_forms', 'ratings.emptyForm_id', '=', 'empty_forms.id')
+        ->join('competences', 'empty_forms.competence_id', '=', 'competences.id')
+        ->join('users', 'ratings.users_id_rated', '=', 'users.id')
+        ->get();
+
+        $rows = DB::table('rows')
+        ->where('rows.emptyForm_id', (int)$id)
+        ->get();
+
+        $cells = DB::table('cells')
+        ->get();
+
+        return view("ratings.show", compact('ratings', 'rows', 'cells'));
     }
 
     /**
@@ -69,7 +86,15 @@ class RatingController extends Controller
      */
     public function edit($id)
     {
-        //
+        $ratings = DB::table('ratings')
+        ->where('ratings.id', (int)$id)
+        ->select('users.*', 'ratings.*', 'empty_forms.title as formTitle', 'competences.title as competenceTitle')
+        ->join('empty_forms', 'ratings.emptyForm_id', '=', 'empty_forms.id')
+        ->join('competences', 'empty_forms.competence_id', '=', 'competences.id')
+        ->join('users', 'ratings.users_id_rated', '=', 'users.id')
+        ->get();
+
+        return view("ratings.edit", compact('ratings'));
     }
 
     /**
@@ -81,7 +106,11 @@ class RatingController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        DB::table('ratings')
+            ->where('id',(int)$id)
+            ->update(['status' =>(int)request('status')]);
+
+        return redirect('/rating');
     }
 
     /**
