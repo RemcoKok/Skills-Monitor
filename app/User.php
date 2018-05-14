@@ -4,10 +4,13 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Zizaco\Entrust\Traits\EntrustUserTrait; 
+use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
-    use Notifiable;
+    use Notifiable,
+    HasRoles;
 
     /**
      * The attributes that are mass assignable.
@@ -27,7 +30,12 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+
+    public function rank(){
+        return $this->belongsTo('App\Rank','rank_id');
+
     public function rating() {
         $this->belongsTo('App\Rating');
+
     }
 }
