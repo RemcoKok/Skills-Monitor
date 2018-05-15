@@ -29,20 +29,20 @@ class ScoreController extends Controller
         $id = Auth::user()->id;
 
         $forms = DB::table('ratings')
-        ->where('empty_forms.title', "da")
+        ->where('empty_forms.id', 1)
         ->join('empty_forms', 'ratings.emptyForm_id', '=', 'empty_forms.id')
         ->get();
 
         $rows = DB::table('empty_forms')
         ->select('rows.*')
-        ->where('empty_forms.title', "da")
+        ->where('empty_forms.id', 1)
         ->join('rows', 'rows.emptyForm_id', '=', 'empty_forms.id')
         ->get();
        
 
         $cells = DB::table('empty_forms')
         ->select('cells.*')
-        ->where('empty_forms.title', "da")
+        ->where('empty_forms.id', 1)
         ->join('rows', 'rows.emptyForm_id', '=', 'empty_forms.id')
         ->join('cells', 'cells.row_id', '=', 'rows.id')
         ->get();

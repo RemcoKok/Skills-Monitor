@@ -19,9 +19,12 @@
     @foreach($forms as $form)
         <table class="table table-bordered">
             <thead>
-            @foreach($rows as $row)
                 <th>1</th>
-            @endforeach
+                <th>2</th>
+                <th>3</th>
+                <th>4</th>
+                <th>5</th>
+                <th>6</th>
                 <th>invul</th>
             </thead>
 
@@ -30,7 +33,7 @@
                     <tr>
                         @foreach($cells as $cell)
                             @if($row->id == $cell->row_id)
-                                <td><input name="Option{{ $row->id }}"  id="{{ $cell->id }}" value="option" type="radio">{{ $cell->cellText }}</td>
+                                <td><input name="Option{{ $row->id }}"  id="{{ $cell->id }}" value="option" type="radio">&nbsp;{{ $cell->cellText }}</td>
                             @endif
                         @endforeach
                         <td colspan="6" class="pull right">

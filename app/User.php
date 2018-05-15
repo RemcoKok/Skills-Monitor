@@ -33,7 +33,7 @@ class User extends Authenticatable
 
     public function rank(){
         return $this->belongsTo('App\Rank','rank_id');
-
+    }
     public function rating() {
         $this->belongsTo('App\Rating');
 

@@ -20,12 +20,12 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::group(['middleware' => ['auth', 'role:admin']], function () {
+// Route::group(['middleware' => ['auth', 'role:admin']], function () {
     Route::post('users/active_deactive', 'UserController@activeDeactive')->name('users.active_deactive');
     Route::post('users/change_role', 'UserController@changeRole')->name('users.change_role');
     Route::get('users', 'UserController@index')->name('superadmin');
     
-  });  
+//   });  
 
 Route::get('/home', 'HomeController@index')->name('home');
 
