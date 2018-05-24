@@ -37,7 +37,6 @@
                     <td>
                     @foreach ($user->roles()->pluck('name') as $role)
                                 <span class="label label-default">{{ $role }}</span>
-                            @endforeach
                     </td>
                     <td>
                         @if (Auth::id() != $user->id)
@@ -53,6 +52,7 @@
                             {{ Form::close() }}
                         @endif
                     </td>
+                    @endforeach
                 </tr>
 
             @endforeach
