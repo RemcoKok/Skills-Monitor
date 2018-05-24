@@ -31,6 +31,8 @@
             </table>
         @endforeach 
         <button class="btn btn-primary pull-right" type="button" onclick="window.location='{{ route("score.create") }}'">Invullen</button>
+
+    
     </div>
     
 @stop

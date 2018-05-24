@@ -24,8 +24,8 @@
                 <form action="{{ route('rating.update', $rating->id)}}" method="post">
                 @method('put')
                 @csrf
-                    <button class="btn btn-success" type="submit" name="status" value="2">accepteer</input>
-                    <button class="btn btn-danger" type="submit" name="status" value="3">afwijzen</input>
+                    <button class="btn btn-success" type="submit" name="status" value="2">accepteer</button>
+                    <button class="btn btn-danger" type="submit" name="status" value="3">afwijzen</button>
                 </form>
             </div>
         @endforeach
