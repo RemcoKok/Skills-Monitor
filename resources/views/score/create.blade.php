@@ -14,15 +14,9 @@
 </div>
 @endif -->
     <div class="box">
-        @foreach($form as $formTitle)
-            <h2>&nbsp;{{ $formTitle->title }}</h2>
-            <br>
-        @endforeach
-        
-    </div>
-
-    <div class="box">
     @foreach($forms as $form)
+            <h2>&nbsp;{{ $form->title }}</h2><br>
+    
         <table class="table table-bordered">
             <thead>
             @foreach($rows as $row)

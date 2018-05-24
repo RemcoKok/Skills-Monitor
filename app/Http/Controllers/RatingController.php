@@ -62,7 +62,7 @@ class RatingController extends Controller
         $ratings = array();
         $ratings = DB::table('ratings')
         ->where('ratings.id', (int)$id)
-        ->select('users.*','empty_forms.*', 'competences.title as competence')
+        ->select('users.*','empty_forms.*','empty_forms.id as formId', 'competences.title as competence')
         ->join('empty_forms', 'ratings.emptyForm_id', '=', 'empty_forms.id')
         ->join('competences', 'empty_forms.competence_id', '=', 'competences.id')
         ->join('users', 'ratings.users_id_rated', '=', 'users.id')

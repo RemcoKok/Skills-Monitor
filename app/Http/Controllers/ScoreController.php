@@ -19,39 +19,32 @@ class ScoreController extends Controller
         //
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        $id = Auth::user()->id;
 
-        $forms = DB::table('ratings')
-        ->where('empty_forms.id', 1)
-        ->join('empty_forms', 'ratings.emptyForm_id', '=', 'empty_forms.id')
-        ->get();
+        if(request()->has('rid')) {
+            
+        
 
-        $form = DB::table('empty_forms')
-        ->select('title')
-        ->where('empty_forms.id', 1)
+        $forms = DB::table('empty_forms')
+        ->select('empty_forms.*')
+        ->where('empty_forms.id', (int)request('rid'))
         ->get();
 
         $rows = DB::table('empty_forms')
         ->select('rows.*')
-        ->where('empty_forms.id', 1)
+        ->where('empty_forms.id',  (int)request('rid'))
         ->join('rows', 'rows.emptyForm_id', '=', 'empty_forms.id')
         ->get();
        
 
         $cells = DB::table('empty_forms')
         ->select('cells.*')
-        ->where('empty_forms.id', 1)
+        ->where('empty_forms.id',  (int)request('rid'))
         ->join('rows', 'rows.emptyForm_id', '=', 'empty_forms.id')
         ->join('cells', 'cells.row_id', '=', 'rows.id')
         ->get();
-
+        }
         return view('score.create', compact('forms', 'form', 'rows', 'cells'));
     }
 
@@ -74,7 +67,7 @@ class ScoreController extends Controller
      */
     public function show($id)
     {
-        //
+        dd($id);
     }
 
     /**
