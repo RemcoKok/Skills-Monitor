@@ -16,12 +16,9 @@ class RatingController extends Controller
      */
     public function index()
     {
-        $id = Auth::user()->id;
-
         
         $ratings = DB::table('ratings')
         ->select('users.id as user_id', 'ratings.id as rating_id', 'empty_forms.id as empty_form_id', 'users.name', 'empty_forms.title as empty_form_title', 'competences.title as competenceTitle', 'ratings.status as status')
-        ->where('ratings.users_id_assessor', (int)$id)
         ->join('users', 'ratings.users_id_assessor', '=', 'users.id')
         ->join('empty_forms', 'ratings.emptyForm_id', '=', 'empty_forms.id')
         ->join('competences', 'empty_forms.competence_id', '=', 'competences.id')
