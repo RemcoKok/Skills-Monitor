@@ -16,11 +16,6 @@ class RatingController extends Controller
      */
     public function index()
     {
-<<<<<<< HEAD
-        
-=======
->>>>>>> 86197107068a37b241d3bccbd2688d7e654965de
-        
         $ratings = DB::table('ratings')
         ->select('users.id as user_id', 'ratings.id as rating_id', 'empty_forms.id as empty_form_id', 'users.name', 'empty_forms.title as empty_form_title', 'competences.title as competenceTitle', 'ratings.status as status')
         ->join('users', 'ratings.users_id_assessor', '=', 'users.id')
