@@ -73,30 +73,7 @@
     //-----------------------------------------------------------
     
 
-    // <div class="box">
-    //     <div class="row invoice-info">
-    //         <div class="col-sm-4 invoice-col">
-    //             <h2>Schrijfregels voor webteksten</h2>
-    //             <h6><br></h6>
-    //             <h5><strong>Hou je koppen helder</strong></h5>
-    //                 <p>
-    //                 &emsp;Begin met een grote kop en gebruik die niet vaker dan 1 keer <br>
-    //                 &emsp;per pagina. Waarom? Het ziet er beter uit en is makkelijker te <br>
-    //                 &emsp;lezen. Nog een reden: de zoekmachine van Google wil weten <br>
-    //                 &emsp;wat de belangrijkste kop is, oftewel waar de tekst op jouw <br>
-    //                 &emsp;website over gaat. Als je veel tekst schrijft, verdeel die dan <br>
-    //                 &emsp;verder met middelgrote en kleine koppen. <br>
-    //                 </p>
-
-    //             <h5><strong>Hou het kort en krachtig</strong></h5>
-    //                 <p>
-    //                 &emsp;De meeste internetgebruikers zijn druk en hebben geen tijd <br>
-    //                 &emsp;voor lange artikelen op een website. Dus focus op 1 onderwerp <br>
-    //                 &emsp;en schrijf bondig om de aandacht van de lezer vast te houden. <br>
-    //                 </p>
-    //         </div>
-    //     </div>
-    // </div>
+    
 
     ?>
 @stop
