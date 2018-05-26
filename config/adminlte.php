@@ -108,73 +108,71 @@ return [
     */
 
     'menu' => [
-        'MAIN NAVIGATION',
+
         [
-            'text' => 'Blog',
-            'url'  => 'admin/blog',
-            'can'  => 'manage-blog',
+            'text'    => 'Formulieren',
+            'icon'    => ' fa-file-text-o',
+            'submenu' => [
+                [
+                    'text'    => 'Formulier aanmaken',
+                    'icon'    => 'edit',
+                    'url'   => '#',
+                ],
+                [
+                    'text'    => 'Openstaande formulieren',
+                    'icon'    => 'list-ul',
+                    'url'   => '#',
+                ],
+                [
+                    'text'    => 'Formulier invullen',
+                    'icon'    => ' fa-check-square-o',
+                    'url'   => '#',
+                ],
+
+
+            ],
         ],
         [
-            'text'        => 'openstaande fomrulieren',
-            'url'         => 'rating',
-            'icon'        => 'file',
+            'text'    => 'Portfolio',
+            'icon'    => ' fa-book',
+            'submenu' => [],
+        ],
+        [
+            'text'    => 'Rooster',
+            'icon'    => ' fa-calendar',
             'label'       => 4,
             'label_color' => 'success',
         ],
-        'ACCOUNT SETTINGS',
         [
-            'text' => 'Profile',
-            'url'  => 'admin/settings',
-            'icon' => 'user',
+            'text'    => 'Profiel',
+            'icon'    => 'user',
         ],
         [
-            'text' => 'Change Password',
-            'url'  => 'admin/settings',
-            'icon' => 'lock',
+            'text'    => 'Mijn klas',
+            'icon'    => 'users',
         ],
         [
-            'text'    => 'Formulieren',
+            'text'    => 'Mail',
+            'icon'    => 'envelope',
+            'label'       => 'New',
+            'label_color' => 'success',
+        ],
+        [
+            'text'    => 'Updates',
+            'icon'    => 'bell',
+            'label'       => '1',
+            'label_color' => 'success',
+        ],
+        [
+            'text'    => 'Contact',
+            'icon'    => 'phone',
+        ],
+        [
+            'text'    => 'Opties',
+            'icon'    => 'cog',
+            'submenu' => [],
+        ],
 
-
-            'icon'    => ' fa-file-text-o',
-
-            'submenu' => [
-                [
-                    'text' => 'Alle formulieren',
-                    'url'  => 'list',
-                ],
-                [
-                    'text'    => 'Nieuw formulier',
-                    'url'     => 'form/create',
-                ],
-                [
-                    'text' => 'Inzien',
-                    'url'  => '#',
-                ],
-                [
-                    'text'    => 'Invullen',
-                    'url'     => '#',
-                ],
-                [
-
-                    'text' => 'Aanpassen',
-                    'url'  => '#',
-                ],
-            ],
-        ],
-        'LABELS',
-        [
-            'text'       => 'Important',
-            'icon_color' => 'red',
-        ],
-        [
-            'text'       => 'Warning',
-            'icon_color' => 'yellow',
-        ],
-        [
-            'text'       => 'Information',
-            'icon_color' => 'aqua',
-        ],
     ],
 
     /*
