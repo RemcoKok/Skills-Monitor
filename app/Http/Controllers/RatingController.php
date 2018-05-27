@@ -16,13 +16,14 @@ class RatingController extends Controller
      */
     public function index()
     {
-        $ratings = DB::table('ratings')
-        ->select('users.id as user_id', 'ratings.id as rating_id', 'empty_forms.id as empty_form_id', 'users.name', 'empty_forms.title as empty_form_title', 'competences.title as competenceTitle', 'ratings.status as status')
-        ->join('users', 'ratings.users_id_assessor', '=', 'users.id')
-        ->join('empty_forms', 'ratings.emptyForm_id', '=', 'empty_forms.id')
+       
+        $forms = DB::table('empty_forms')
+        ->select('empty_forms.*','competences.title as competenceTitle')
         ->join('competences', 'empty_forms.competence_id', '=', 'competences.id')
         ->get();
-        return view("ratings.index", compact('ratings'));
+
+
+        return view("ratings.index", compact('forms'));
         
     }
 
@@ -33,7 +34,14 @@ class RatingController extends Controller
      */
     public function create()
     {
-        //
+        $id = (int)request('id');
+        $forms = DB::table('empty_forms')
+        ->select('empty_forms.*','competences.title as competenceTitle')
+        ->where('empty_forms.id', $id)
+        ->join('competences', 'empty_forms.competence_id', '=', 'competences.id')
+        ->get();
+
+        return view("ratings.index", compact('forms'));
     }
 
     /**
@@ -44,7 +52,7 @@ class RatingController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return redirect('/rating');
     }
 
     /**
@@ -102,11 +110,7 @@ class RatingController extends Controller
      */
     public function update(Request $request, $id)
     {
-        DB::table('ratings')
-            ->where('id',(int)$id)
-            ->update(['status' =>(int)request('status')]);
-
-        return redirect('/rating');
+        //
     }
 
     /**

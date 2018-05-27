@@ -7,9 +7,18 @@
 @stop
 
 @section('content')
-            @foreach($forms as $form)
+<div class="box">
+        <div class="box-header">
+        </div>
+
+        <div class="box-body">
+        <form method="post" action="{{route('forms.store')}}">
+            {{ csrf_field() }}
                 
-            @endforeach 
-        </tbody> 
-    </table>
+
+
+
+            <button type="submit" class="btn btn-primary pull-right" >opslaan</button>
+        </form>
+    </div>
 @stop

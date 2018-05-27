@@ -12,41 +12,37 @@
     <div class="header">
         <h2>Uw openstaande formulieren:</h2>
     </div>
-    <table class="table table-bordered responsive">
-        <theader class="head">        
+    <form action="/search" method="POST" role="search">
+        {{ csrf_field() }}
+        <button type="submit" class="btn btn-primary pull-right" style="margin:10px 10px 10px 0px;">zoek formulier</button>
+            <div class="col-sm-3 pull-right" style="margin:10px 0px 10px 10px;">
+                <input class="form-control" placeholde="Zoek formulieren" type="text" name="q">
+            </div>  
+    </form>
+
+    <table class="table table-bordered">
+        <theader>        
             <tr>
                 <th>Titel</th>
                 <th>Te beoordelen</th>
-                <th>Competentie</th>
-                <th>status</th>
             </tr>   
-        </theader>                    
         <tbody>
-            @foreach($ratings as $rating)
+            @if(isset($details) == null)
+                @foreach($forms as $form)<tr>
+                        <td><u><a href="{{ route('rating.show', $form->id) }}">{{ $form->title }}</a></u></td>
+                        <td>{{ $form->competenceTitle }}</td>
+                        <td><a class="btn btn-primary" href="{{ route('rating.create', ['id' => $form->id]) }}">invullen</a></td>
+                    </tr>
+                @endforeach
+            @else
+                @foreach($details as $form)
                 <tr>
-                    <td><a href="{{ route('rating.show', $rating->empty_form_id) }}">{{ $rating->empty_form_title }}</a></td>
-                    <td>{{ $rating->name }}</td>
-                    <td>{{ $rating->competenceTitle }}</td>
-                    @switch($rating->status)
-                        @case(1)
-                            <td>
-                                <button  class="btn btn-warning"class="btn btn-primary" type="button" onclick="window.location='{{ route("rating.edit", $rating->rating_id) }}'">openstaand</button>
-                            </td>
-                        @break
-                        @case(2)
-                            <td>
-                            <button  class="btn btn-success"class="btn btn-primary" type="button" onclick="window.location='{{ route("rating.edit", $rating->rating_id) }}'">geaccepteerd</button>
-                            </td>
-                        @break
-
-                        @case(3)
-                            <td>
-                            <button  class="btn btn-danger"class="btn btn-primary" type="button" onclick="window.location='{{ route("rating.edit", $rating->rating_id) }}'">afgewezen</button>
-                            </td>
-                        @break
-                    @endswitch
-                </tr>
-            @endforeach 
+                        <td><u><a href="{{ route('rating.show', $form->id) }}">{{ $form->title }}</a></u></td>
+                        <td>{{ $form->competenceTitle }}</td>
+                        <td><a class="btn btn-primary" href="{{ route('rating.create', ['id' => $form->id]) }}">invullen</a></td>
+                    </tr>
+                @endforeach
+            @endif   
         </tbody> 
     </table>
 @stop
