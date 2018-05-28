@@ -8,11 +8,6 @@
 
 @section('content')
 
-<!-- @if(session()->has('success'))
-<div class="alert alert-success">
-    {{ session()->get('success') }}
-</div>
-@endif -->
     <div class="box">
     @foreach($forms as $form)
             <h2>&nbsp;{{ $form->title }}</h2><br>
@@ -48,11 +43,9 @@
                                 @endif
                             @endforeach
                             <td colspan="6" class="pull right">
-                        <input type="text" name="comment[]" placeholder="comment">
-                    </td>
-
+                                <input type="text" name="comment[]" placeholder="comment">
+                            </td>
                         </tr>
-
                     @endforeach
                 </tbody>
         </table>
@@ -62,12 +55,6 @@
             <button type=""button class="btn btn-primary pull-left" onclick="location.href='{{ url("/rating") }}'">Back</button>
     @endforeach
     </div>
-
-    <?php
-    //----------------------------------------------------------- 
-    //-------------Einde User Story, Begin stuff van GRE1--------
-    //-----------------------------------------------------------
-    ?>
 <br>
 
 @stop

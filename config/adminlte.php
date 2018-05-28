@@ -108,71 +108,56 @@ return [
     */
 
     'menu' => [
-
+        'MAIN NAVIGATION',
+        [
+            'text' => 'Blog',
+            'url'  => 'admin/blog',
+            'can'  => 'manage-blog',
+        ],
+        [
+            'text'        => 'Openstaande formulieren',
+            'url'         => 'rating',
+            'icon'        => 'file',
+            'label'       => 4,
+            'label_color' => 'success',
+        ],
+        'ACCOUNT SETTINGS',
+        [
+            'text' => 'Profile',
+            'url'  => 'admin/settings',
+            'icon' => 'user',
+        ],
+        [
+            'text' => 'Change Password',
+            'url'  => 'admin/settings',
+            'icon' => 'lock',
+        ],
         [
             'text'    => 'Formulieren',
             'icon'    => ' fa-file-text-o',
             'submenu' => [
                 [
-                    'text'    => 'Formulier aanmaken',
-                    'icon'    => 'edit',
-                    'url'   => '#',
+                    'text' => 'Alle formulieren',
+                    'url'  => 'list',
                 ],
                 [
-                    'text'    => 'Openstaande formulieren',
-                    'icon'    => 'list-ul',
-                    'url'   => '#',
+                    'text'    => 'Nieuw formulier',
+                    'url'     => 'form/create',
                 ],
                 [
-                    'text'    => 'Formulier invullen',
-                    'icon'    => ' fa-check-square-o',
-                    'url'   => '#',
+                    'text' => 'Inzien',
+                    'url'  => '#',
                 ],
-
-
+                [
+                    'text'    => 'Invullen',
+                    'url'     => '#',
+                ],
+                [
+                    'text' => 'Aanpassen',
+                    'url'  => '#',
+                ],
             ],
         ],
-        [
-            'text'    => 'Portfolio',
-            'icon'    => ' fa-book',
-            'submenu' => [],
-        ],
-        [
-            'text'    => 'Rooster',
-            'icon'    => ' fa-calendar',
-            'label'       => 4,
-            'label_color' => 'success',
-        ],
-        [
-            'text'    => 'Profiel',
-            'icon'    => 'user',
-        ],
-        [
-            'text'    => 'Mijn klas',
-            'icon'    => 'users',
-        ],
-        [
-            'text'    => 'Mail',
-            'icon'    => 'envelope',
-            'label'       => 'New',
-            'label_color' => 'success',
-        ],
-        [
-            'text'    => 'Updates',
-            'icon'    => 'bell',
-            'label'       => '1',
-            'label_color' => 'success',
-        ],
-        [
-            'text'    => 'Contact',
-            'icon'    => 'phone',
-        ],
-        [
-            'text'    => 'Opties',
-            'icon'    => 'cog',
-            'submenu' => [],
-        ],
-
     ],
 
     /*
