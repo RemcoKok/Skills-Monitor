@@ -158,7 +158,7 @@ return [
                 [
 
                     'text' => 'Aanpassen',
-                    'url'  => '#',
+                    'url'  => 'form/edit',
                 ],
             ],
         ],

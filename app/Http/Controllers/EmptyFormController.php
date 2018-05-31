@@ -15,6 +15,7 @@ class EmptyFormController extends Controller
     public function index()
     {
         $empty_forms = EmptyForm::all()->toArray();
+        
         return view('forms.index', compact('empty_forms'));
     }
 
@@ -60,7 +61,8 @@ class EmptyFormController extends Controller
     public function show($id)
     {
         $empty_form = EmptyForm::all()->where('id', '=', $id)->pop();
-        return view('forms/show')->with(["empty_form" => $empty_form]);
+        
+        return view('forms/show')->with('empty_form');
     }
 
     /**

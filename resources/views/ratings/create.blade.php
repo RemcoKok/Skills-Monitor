@@ -3,22 +3,33 @@
 @section('title', 'AdminLTE')
 
 @section('content_header')
-    <h1>Dashboard </h1>
 @stop
 
 @section('content')
+
 <div class="box">
-        <div class="box-header">
+
+    @foreach($forms as $form)
+    <form method="post" action="{{route('rating.store', ['form_id' => $form->id])}}">
+           
+        <div class="header">
+            <h2>{{ $form->title }}</h2>
         </div>
 
         <div class="box-body">
-        <form method="post" action="{{route('forms.store')}}">
             {{ csrf_field() }}
-                
-
-
-
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Multiple</label>
+                <select name="user" class="form-control m-bot15" data-placeholder="Kies een persoon">
+                  @foreach($users as $user)
+                    <option value="{{ $user->id }}">{{ $user->name }}</option>
+                  @endforeach
+                </select>
+              </div>
+            </div>
             <button type="submit" class="btn btn-primary pull-right" >opslaan</button>
         </form>
-    </div>
+    @endforeach
+</div>
 @stop

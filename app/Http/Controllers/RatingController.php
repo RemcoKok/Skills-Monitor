@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
 use App\Rating;
 use Auth;
@@ -41,7 +42,12 @@ class RatingController extends Controller
         ->join('competences', 'empty_forms.competence_id', '=', 'competences.id')
         ->get();
 
-        return view("ratings.index", compact('forms'));
+        $users = DB::table('users')
+        ->select('users.*')
+        ->get();
+
+
+        return view("ratings.create", compact('forms', 'users'));
     }
 
     /**
@@ -52,6 +58,15 @@ class RatingController extends Controller
      */
     public function store(Request $request)
     {
+        $rating = new Rating;
+
+        $rating->emptyForm_id = request('form_id');
+        $rating->users_id_assessor = Auth::user()->id;
+        $rating->users_id_rated = request('user');
+        $rating->graded = 1;
+        $rating->status = 1;
+
+        $rating->save();
         return redirect('/rating');
     }
 
@@ -63,13 +78,10 @@ class RatingController extends Controller
      */
     public function show($id)
     {  
-        $ratings = array();
-        $ratings = DB::table('ratings')
-        ->where('ratings.id', (int)$id)
-        ->select('users.*','empty_forms.*', 'competences.title as competence')
-        ->join('empty_forms', 'ratings.emptyForm_id', '=', 'empty_forms.id')
+        $forms = DB::table('empty_forms')
+        ->where('empty_forms.id', (int)$id)
+        ->select('empty_forms.*', 'competences.title as competence')
         ->join('competences', 'empty_forms.competence_id', '=', 'competences.id')
-        ->join('users', 'ratings.users_id_rated', '=', 'users.id')
         ->get();
 
         $rows = DB::table('rows')
@@ -122,5 +134,17 @@ class RatingController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function search(){
+        $q = Input::get ( 'q' );
+        $forms = DB::table('empty_forms')
+            ->select('empty_forms.*', 'competences.title as competenceTitle')
+            ->where('empty_forms.title','LIKE','%'.$q.'%')
+            ->join('competences', 'empty_forms.competence_id', '=', 'competences.id')
+            ->get(); 
+        if(count($forms) > 0)
+            return view('ratings.index')->withDetails($forms)->withQuery ( $q );
+        else return redirect('/rating');
     }
 }

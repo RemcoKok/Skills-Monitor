@@ -9,12 +9,12 @@
 @section('content')
 
     <div class="box">
-        @foreach($ratings as $rating)
+        @foreach($forms as $form)
             <div class="header">
-            <button class="btn btn-primary" type="button" onclick="window.location='{{ route("rating.index") }}'">&larr; back</button>
-                <h2 class="box-title">{{ $rating->title }}</h2>
+            <a class="btn btn-primary" type="button" href="{{ route('rating.index') }}">&larr; back</a>
+                <h2 class="box-title">{{ $forms->title }}</h2>
 
-                <h4 class="help-block"><i>Te beoordelen: {{ $rating->name }}</i></h4>
+                <h4 class="help-block"><i>Te beoordelen: {{ $forms->name }}</i></h4>
             </div>
             <table class="table table-bordered">                  
                 <tbody>
@@ -30,7 +30,7 @@
                 </tbody> 
             </table>
         @endforeach 
-        <button class="btn btn-primary pull-right" type="button" onclick="window.location='{{ route("score.create") }}'">Invullen</button>
+        <a class="btn btn-primary pull-right" type="button" href="{{ route('score.create') }}">Invullen</a>
 
     
     </div>

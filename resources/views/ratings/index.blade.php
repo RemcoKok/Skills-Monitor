@@ -15,8 +15,8 @@
     <form action="/search" method="POST" role="search">
         {{ csrf_field() }}
         <button type="submit" class="btn btn-primary pull-right" style="margin:10px 10px 10px 0px;">zoek formulier</button>
-            <div class="col-sm-3 pull-right" style="margin:10px 0px 10px 10px;">
-                <input class="form-control" placeholde="Zoek formulieren" type="text" name="q">
+            <div class="" style="margin:10px 0px 10px 10px;">
+                <input class="form-control col-sm-3 pull-right" placeholde="Zoek formulieren" type="text" name="q">
             </div>  
     </form>
 
@@ -24,7 +24,7 @@
         <theader>        
             <tr>
                 <th>Titel</th>
-                <th>Te beoordelen</th>
+                <th></th>
             </tr>   
         <tbody>
             @if(isset($details) == null)
@@ -45,4 +45,32 @@
             @endif   
         </tbody> 
     </table>
+
+        
+    
+    
+    <ul>
+    <h4>eaOFiuAWBFaNWDawIUDn:</h4>
+        <li>0</li>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+    
+    
+    <ul>
+    <h4>eaOFiuAWBFaNWDawIUDn:</h4>
+        <li>0</li>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+
+
+
+</div>
+
+
 @stop

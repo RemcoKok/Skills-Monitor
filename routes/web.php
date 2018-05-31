@@ -10,8 +10,8 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-use App\EmptyForm;
-use Illuminate\Support\Facades\Input;
+
+
 
 Route::get('/', function () {
     //return view('welcomel');
@@ -51,11 +51,5 @@ Route::resources([
     'score' => 'scoreController',
     'list' => 'ListController'
 ]);
+Route::any('/search', 'RatingController@search');
 
-Route::any('/search',function(){
-    $q = Input::get ( 'q' );
-    $forms = EmptyForm::where('title','LIKE','%'.$q.'%')->get();
-    if(count($forms) > 0)
-        return view('ratings.index')->withDetails($forms)->withQuery ( $q );
-    else return redirect('/rating');
-});
