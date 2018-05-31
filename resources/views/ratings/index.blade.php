@@ -23,7 +23,7 @@
         <tbody>
             @foreach($ratings as $rating)
                 <tr>
-                    <td><a href="{{ route('rating.show', $rating->empty_form_id) }}">{{ $rating->empty_form_title }}</a></td>
+                    <td><a href="{{ route('rating.show', $rating->rating_id) }}">{{ $rating->empty_form_title }}</a></td>
                     <td>{{ $rating->name }}</td>
                     <td>{{ $rating->competenceTitle }}</td>
                     @switch($rating->status)

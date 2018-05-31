@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Rating;
+use App\Score;
 use Auth;
 use DB;
 
@@ -23,24 +24,25 @@ class ScoreController extends Controller
     {
 
         if(request()->has('rid')) {
-            
-        
 
-        $forms = DB::table('empty_forms')
-        ->select('empty_forms.*')
-        ->where('empty_forms.id', (int)request('rid'))
+        $forms = DB::table('ratings')
+        ->select('empty_forms.*', 'ratings.id as ratingId')
+        ->where('ratings.id', (int)request('rid'))
+        ->join('empty_forms', 'empty_forms.id','=','ratings.emptyForm_id')
         ->get();
 
-        $rows = DB::table('empty_forms')
+        $rows = DB::table('ratings')
         ->select('rows.*')
-        ->where('empty_forms.id',  (int)request('rid'))
+        ->where('ratings.id',  (int)request('rid'))
+        ->join('empty_forms', 'empty_forms.id','=','ratings.emptyForm_id')
         ->join('rows', 'rows.emptyForm_id', '=', 'empty_forms.id')
         ->get();
        
 
-        $cells = DB::table('empty_forms')
+        $cells = DB::table('ratings')
         ->select('cells.*')
-        ->where('empty_forms.id',  (int)request('rid'))
+        ->where('ratings.id',  (int)request('rid'))
+        ->join('empty_forms', 'empty_forms.id','=','ratings.emptyForm_id')
         ->join('rows', 'rows.emptyForm_id', '=', 'empty_forms.id')
         ->join('cells', 'cells.row_id', '=', 'rows.id')
         ->get();
@@ -56,7 +58,24 @@ class ScoreController extends Controller
      */
     public function store(Request $request)
     {
-       return $request->all(); 
+        $values = $request->all();
+        $id = (int)request('id');
+        for($i = 1; $i <= sizeof($values) / 2 -1; $i++){
+            // $scores[] = $values['Option'.$i];
+            // $comments[] = $values['comment'.$i];
+            $score = new Score;
+            $score->cell_id = request('Option'.$i);
+            $score->comment = request('comment'.$i);
+            $score->rating_id = $id;
+            $score->save();
+        }
+        
+
+        
+        // foreach($scores as $score){
+        // }
+        
+        return $request->all();    
     }
 
     /**
