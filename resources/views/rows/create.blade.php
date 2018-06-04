@@ -19,7 +19,8 @@
 
 
             <div class="box-body">
-                <form method="post" action="store {{route('row.store')}}">
+                <form method="post" action="{{route('row.store',['form'=>request()->route('form')])}}">
+
                     {{csrf_field()}}
 
                 <div class="form-group">

@@ -15,7 +15,7 @@ class CreateRowsTable extends Migration
     {
         Schema::create('rows', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('emptyForm_id');
+            $table->unsignedInteger('empty_form_id');
             $table->timestamps();
         });
     }

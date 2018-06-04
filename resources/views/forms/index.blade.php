@@ -12,7 +12,7 @@
 
         <div class="box-header">
             <h3 class="box-title">Responsive Hover Table</h3>
-            <button class="btn btn-info" onclick="location.href='{{ url("/form/create/") }}'">Nieuw formulier</button>
+            <button class="btn btn-info" onclick="location.href='{{ route('form.create') }}'">Nieuw formulier</button>
 
             <div class="box-tools">
                 <div class="input-group input-group-sm" style="width: 150px;">

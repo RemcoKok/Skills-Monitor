@@ -38,14 +38,10 @@ Route::resources([
     //'users' => 'UserController',
 
     'form' => 'EmptyFormController',
-    'form/9/row' => 'RowController',
-    'row' => 'RowController',
+    'form/{form}/row' => 'RowController',
     'cell' => 'CellController',
     'rating' => 'RatingController',
-    'score' => 'scoreController',
-    'list' => 'ListController'
-
-
+    'score' => 'scoreController'
 ]);
 
 
