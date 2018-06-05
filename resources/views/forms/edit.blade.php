@@ -39,7 +39,7 @@
                     {{csrf_field()}}
                     @method('PUT')
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Naam" name="title"/>
+                        <input type="text" class="form-control" placeholder="Naam formulier" name="title"/>
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control" placeholder="Competentie" name="competence_id"/>
