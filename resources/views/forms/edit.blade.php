@@ -3,7 +3,7 @@
 @section('title', 'AdminLTE')
 
 @section('content_header')
-    <h1>Docent Dashboard </h1>
+    <h1>Pas formulier aan</h1>
 @stop
 
 @section('content')
