@@ -3,7 +3,7 @@
 @section('title', 'AdminLTE')
 
 @section('content_header')
-    <h1>Pas het formulier aan</h1>
+    <h1><strong>Pas het formulier aan</strong></h1>
 @stop
 
 @section('content')
