@@ -23,7 +23,7 @@
         <div class="row">
             <div class="col-md-12">
                 <br/>
-                <h3 align="left">Voer een naam en competentie in</h3>
+                <h4 align="left">Voer een naam en competentie in</h4>
                 <br/>
                 @if(count($errors) > 0)
                     <div class="alert alert-danger">
