@@ -26,9 +26,11 @@ class ScoreController extends Controller
         if(request()->has('rid')) {
 
         $forms = DB::table('ratings')
+
         ->select('empty_forms.*', 'ratings.id as ratingId')
         ->where('ratings.id', (int)request('rid'))
         ->join('empty_forms', 'empty_forms.id','=','ratings.emptyForm_id')
+
         ->get();
 
         $rows = DB::table('ratings')
@@ -41,6 +43,7 @@ class ScoreController extends Controller
 
         $cells = DB::table('ratings')
         ->select('cells.*')
+
         ->where('ratings.id',  (int)request('rid'))
         ->join('empty_forms', 'empty_forms.id','=','ratings.emptyForm_id')
         ->join('rows', 'rows.emptyForm_id', '=', 'empty_forms.id')

@@ -13,6 +13,7 @@
         "laravelcollective/html": "~5.0",
         "spatie/laravel-permission": "^2.12",
         "zizaco/entrust": "5.2.x-dev"
+
     },
     "require-dev": {
         "filp/whoops": "~2.0",

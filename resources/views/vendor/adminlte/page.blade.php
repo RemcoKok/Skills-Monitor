@@ -111,6 +111,7 @@
 
         <section class="content">
                 @yield('content')
+
         
             @if(config('adminlte.layout') == 'top-nav')
             <div class="container">
@@ -120,6 +121,7 @@
             <section class="content-header">
             
                 @yield('content_header')
+                @yield('content')
             </section>
             
 

@@ -1,18 +1,19 @@
 @extends('adminlte::page')
 
-@section('title', 'AdminLTE')
+@section('title', 'Openstaande formulieren')
 
 @section('content_header')
     
 @stop
 
 @section('content')
+<link rel="stylesheet" href="<?php echo asset('css/GRE.css')?>" type="text/css"> 
 <div class="box">
     <div class="header">
-        <h2 class="box-title">Uw openstaande formulieren</h2>
+        <h2>Uw openstaande formulieren:</h2>
     </div>
-    <table class="table table-bordered">
-        <theader>        
+    <table class="table table-bordered responsive">
+        <theader class="head">        
             <tr>
                 <th>Titel</th>
                 <th>Te beoordelen</th>
@@ -32,7 +33,6 @@
                                 <button  class="btn btn-warning"class="btn btn-primary" type="button" onclick="window.location='{{ route("rating.edit", $rating->rating_id) }}'">openstaand</button>
                             </td>
                         @break
-
                         @case(2)
                             <td>
                             <button  class="btn btn-success"class="btn btn-primary" type="button" onclick="window.location='{{ route("rating.edit", $rating->rating_id) }}'">geaccepteerd</button>
@@ -49,5 +49,4 @@
             @endforeach 
         </tbody> 
     </table>
-</div>
 @stop

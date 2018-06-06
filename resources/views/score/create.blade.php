@@ -50,6 +50,7 @@
                             <?php
                                 $i++;
                             ?>
+
                         @endforeach
                     </tbody>
             </table>
