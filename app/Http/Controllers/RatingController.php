@@ -78,6 +78,7 @@ class RatingController extends Controller
      */
     public function show($id)
     {  
+
         $forms = DB::table('empty_forms')
         ->where('empty_forms.id', (int)$id)
         ->select('empty_forms.*', 'competences.title as competence')

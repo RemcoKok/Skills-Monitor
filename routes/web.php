@@ -31,6 +31,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+//Route::get('/admin', 'AdminController@index')->name('admin');
+//Route::get('/users', 'SuperAdminController@index')->name('superadmin');
 
 //Route::get('/admin', 'AdminController@index')->name('admin');
 //Route::get('/users', 'SuperAdminController@index')->name('superadmin');
@@ -53,5 +55,7 @@ Route::resources([
     'score' => 'scoreController'
 
 ]);
+
 Route::any('/search', 'RatingController@search');
+
 

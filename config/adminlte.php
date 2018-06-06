@@ -134,10 +134,7 @@ return [
         ],
         [
             'text'    => 'Formulieren',
-
-
             'icon'    => ' fa-file-text-o',
-
             'submenu' => [
                 [
                     'text' => 'Alle formulieren',
@@ -159,6 +156,7 @@ return [
 
                     'text' => 'Aanpassen',
                     'url'  => 'form/edit',
+
                 ],
 
             ],

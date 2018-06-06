@@ -29,10 +29,12 @@
                     @endforeach
                 </tbody> 
             </table>
+            <a class="btn btn-primary pull-right" type="button" href="{{ route('score.create', ['rid' => $rating->ratingID]) }}">Invullen</a>
         @endforeach 
+
         <a class="btn btn-primary pull-right" type="button" href="{{ route('score.create') }}">Invullen</a>
 
-    
+
     </div>
     
 @stop

@@ -28,6 +28,6 @@ class CreateEmptyFormTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('empty_form');
+        Schema::dropIfExists('empty_forms');
     }
 }

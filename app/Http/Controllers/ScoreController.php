@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Rating;
+use App\Score;
 use Auth;
 use DB;
 
@@ -19,41 +20,37 @@ class ScoreController extends Controller
         //
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        $id = Auth::user()->id;
+
+        if(request()->has('rid')) {
 
         $forms = DB::table('ratings')
-        ->where('empty_forms.id', 1)
-        ->join('empty_forms', 'ratings.emptyForm_id', '=', 'empty_forms.id')
+
+        ->select('empty_forms.*', 'ratings.id as ratingId')
+        ->where('ratings.id', (int)request('rid'))
+        ->join('empty_forms', 'empty_forms.id','=','ratings.emptyForm_id')
+
         ->get();
 
-        $rows = DB::table('empty_forms')
+        $rows = DB::table('ratings')
         ->select('rows.*')
-        ->where('empty_forms.id', 1)
+        ->where('ratings.id',  (int)request('rid'))
+        ->join('empty_forms', 'empty_forms.id','=','ratings.emptyForm_id')
         ->join('rows', 'rows.emptyForm_id', '=', 'empty_forms.id')
         ->get();
        
 
-        $cells = DB::table('empty_forms')
+        $cells = DB::table('ratings')
         ->select('cells.*')
-        ->where('empty_forms.id', 1)
+
+        ->where('ratings.id',  (int)request('rid'))
+        ->join('empty_forms', 'empty_forms.id','=','ratings.emptyForm_id')
         ->join('rows', 'rows.emptyForm_id', '=', 'empty_forms.id')
         ->join('cells', 'cells.row_id', '=', 'rows.id')
         ->get();
-        //->where('id', $ratingID)->get()
-        // $ratingID = Rating::all();
-
-        // $forms = emptyForm::all();
-
-        // $rows = Row::all();
-
-        return view('score.create', compact('forms','rows', 'cells'));
+        }
+        return view('score.create', compact('forms', 'form', 'rows', 'cells'));
     }
 
     /**
@@ -64,7 +61,17 @@ class ScoreController extends Controller
      */
     public function store(Request $request)
     {
-        return $request->all();
+        $values = $request->all();
+        $id = (int)request('id');
+        for($i = 1; $i <= sizeof($values) / 2 -1; $i++){
+            $score = new Score;
+            $score->cell_id = request('Option'.$i);
+            $score->comment = request('comment'.$i);
+            $score->rating_id = $id;
+            $score->save();
+        }
+
+        return $request->all();    
     }
 
     /**
@@ -75,7 +82,7 @@ class ScoreController extends Controller
      */
     public function show($id)
     {
-        //
+        dd($id);
     }
 
     /**
