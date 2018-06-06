@@ -61,8 +61,6 @@ class ScoreController extends Controller
      */
     public function store(Request $request)
     {
-
-
         $values = $request->all();
         $id = (int)request('id');
         for($i = 1; $i <= sizeof($values) / 2 -1; $i++){

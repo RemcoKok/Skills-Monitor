@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Catalogus;
 use DB;
+use Auth;
 
 class ListController extends Controller
 {
@@ -16,9 +17,14 @@ class ListController extends Controller
      */
     public function index()
     {
-        $emptyForms = DB::table('empty_forms')->select('title', 'competence_id')->get();
 
-        return view ('forms.index', ['empty_forms'=> $emptyForms]);
+        $forms = DB::table('empty_forms')
+        ->select('empty_forms.*','competences.title as competenceTitle')
+        ->join('competences', 'empty_forms.competence_id', '=', 'competences.id')
+        ->get();
+
+
+        return view("forms.index", compact('forms'));
     }
 
     /**

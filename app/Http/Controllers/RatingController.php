@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
 use App\Rating;
 use Auth;
@@ -16,13 +17,14 @@ class RatingController extends Controller
      */
     public function index()
     {
-        $ratings = DB::table('ratings')
-        ->select('users.id as user_id', 'ratings.id as rating_id', 'empty_forms.id as empty_form_id', 'users.name', 'empty_forms.title as empty_form_title', 'competences.title as competenceTitle', 'ratings.status as status')
-        ->join('users', 'ratings.users_id_assessor', '=', 'users.id')
-        ->join('empty_forms', 'ratings.emptyForm_id', '=', 'empty_forms.id')
+       
+        $forms = DB::table('empty_forms')
+        ->select('empty_forms.*','competences.title as competenceTitle')
         ->join('competences', 'empty_forms.competence_id', '=', 'competences.id')
         ->get();
-        return view("ratings.index", compact('ratings'));
+
+
+        return view("ratings.index", compact('forms'));
         
     }
 
@@ -33,7 +35,19 @@ class RatingController extends Controller
      */
     public function create()
     {
-        //
+        $id = (int)request('id');
+        $forms = DB::table('empty_forms')
+        ->select('empty_forms.*','competences.title as competenceTitle')
+        ->where('empty_forms.id', $id)
+        ->join('competences', 'empty_forms.competence_id', '=', 'competences.id')
+        ->get();
+
+        $users = DB::table('users')
+        ->select('users.*')
+        ->get();
+
+
+        return view("ratings.create", compact('forms', 'users'));
     }
 
     /**
@@ -44,7 +58,16 @@ class RatingController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $rating = new Rating;
+
+        $rating->emptyForm_id = request('form_id');
+        $rating->users_id_assessor = Auth::user()->id;
+        $rating->users_id_rated = request('user');
+        $rating->graded = 1;
+        $rating->status = 1;
+
+        $rating->save();
+        return redirect('/list');
     }
 
     /**
@@ -55,13 +78,11 @@ class RatingController extends Controller
      */
     public function show($id)
     {  
-        $ratings = array();
-        $ratings = DB::table('ratings')
-        ->where('ratings.id', (int)$id)
-        ->select('users.*','empty_forms.*','empty_forms.id as formId', 'competences.title as competence','ratings.id as ratingID')
-        ->join('empty_forms', 'ratings.emptyForm_id', '=', 'empty_forms.id')
+
+        $forms = DB::table('empty_forms')
+        ->where('empty_forms.id', (int)$id)
+        ->select('empty_forms.*', 'competences.title as competence')
         ->join('competences', 'empty_forms.competence_id', '=', 'competences.id')
-        ->join('users', 'ratings.users_id_rated', '=', 'users.id')
         ->get();
 
         $rows = DB::table('rows')
@@ -71,7 +92,7 @@ class RatingController extends Controller
         $cells = DB::table('cells')
         ->get();
 
-        return view("ratings.show", compact('ratings', 'rows', 'cells'));
+        return view("ratings.show", compact('forms', 'rows', 'cells'));
     }
 
     /**
@@ -102,11 +123,7 @@ class RatingController extends Controller
      */
     public function update(Request $request, $id)
     {
-        DB::table('ratings')
-            ->where('id',(int)$id)
-            ->update(['status' =>(int)request('status')]);
-
-        return redirect('/rating');
+        //
     }
 
     /**
@@ -118,5 +135,17 @@ class RatingController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function search(){
+        $q = Input::get ( 'q' );
+        $forms = DB::table('empty_forms')
+            ->select('empty_forms.*', 'competences.title as competenceTitle')
+            ->where('empty_forms.title','LIKE','%'.$q.'%')
+            ->join('competences', 'empty_forms.competence_id', '=', 'competences.id')
+            ->get(); 
+        if(count($forms) > 0)
+            return view('forms.index')->withDetails($forms)->withQuery ( $q );
+        else return redirect('/list');
     }
 }

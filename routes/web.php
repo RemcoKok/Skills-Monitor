@@ -11,6 +11,8 @@
 |
 */
 
+
+
 Route::get('/', function () {
     //return view('welcomel');
     return view('auth.login');
@@ -53,4 +55,7 @@ Route::resources([
     'score' => 'scoreController'
 
 ]);
+
+Route::any('/search', 'RatingController@search');
+
 

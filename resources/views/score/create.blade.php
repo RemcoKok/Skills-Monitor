@@ -8,6 +8,7 @@
 
 @section('content')
 
+
     <div class="box">
         @foreach($forms as $form)
             <h2>&nbsp;{{ $form->title }}</h2><br>
@@ -50,7 +51,6 @@
                             <?php
                                 $i++;
                             ?>
-
                         @endforeach
                     </tbody>
             </table>

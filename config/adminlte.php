@@ -153,8 +153,10 @@ return [
                     'url'     => '#',
                 ],
                 [
+
                     'text' => 'Aanpassen',
-                    'url'  => '#',
+                    'url'  => 'form/edit',
+
                 ],
 
             ],
