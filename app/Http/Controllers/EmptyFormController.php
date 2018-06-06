@@ -90,6 +90,7 @@ class EmptyFormController extends Controller
             'competence_id'=>$request->competence_id
         ]);
         
+        return redirect('/form');
     }
 
     /**
