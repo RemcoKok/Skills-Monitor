@@ -33,7 +33,6 @@
                     <th>Competentie</th>
                     <th>Aanpassen formulier</th>
                 </tr>
-                <tr>
 
                 @foreach($empty_forms as $empty_form)
                     <tr>

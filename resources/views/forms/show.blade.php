@@ -24,7 +24,7 @@
                 </h3>
 
 
-                <button class="btn btn-primary pull-right" onclick="location.href='{{ url("/form/create/") }}'">Wijzig
+                <button class="btn btn-primary pull-right" onclick="location.href='{{ url("form/edit") }}'">Wijzig
                     naam/competentie
                 </button>
             </div>
@@ -45,19 +45,32 @@
                         Voeg rij toe
                     </button>
                     <h4>er zijn rijen beschikbaar !</h4>
-                    @foreach($empty_form->rows as $row)
-                        @foreach($row->cells as $cell)
-                            {{$cell->cellText}}
-                        @endforeach
-                    @endforeach
                 </div>
             @endif
+
+
+            <div class="box-body table-responsive no-padding">
+                <table class="table table-hover">
+                    <tbody>
+                    <tr>
+                        <th>Cellen</th>
+                    </tr>
+
+                    @foreach($empty_form->rows as $row)
+                        @foreach($row->cells as $cell)
+                            <tr>
+                                <td>{{$cell->cellText}}</td>
+                            </tr>
+                        @endforeach
+                    @endforeach
+
+                    </tbody>
+                </table>
+            </div>
             <button class="btn btn-primary pull-right" onclick="location.href='{{ url("/list/") }}'">Opslaan</button>
 
+
         </div>
-
-
-    </div>
 
 
 @stop
