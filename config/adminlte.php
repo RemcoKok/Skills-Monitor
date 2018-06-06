@@ -118,7 +118,6 @@ return [
             'text'        => 'Openstaande formulieren',
             'url'         => 'rating',
             'icon'        => 'file',
-            'label'       => 4,
             'label_color' => 'success',
         ],
         'ACCOUNT SETTINGS',
