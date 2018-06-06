@@ -37,19 +37,21 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('rating/{id}', [
 
+
+    'uses' => 'RatingController@create'
+])->name('create');
+
+
     'uses' => 'RatingController@create'
 ])->name('create');
 
 Route::resources([
-    //'users' => 'UserController',
-
     'form' => 'EmptyFormController',
-    'form/9/row' => 'RowController',
-    'row' => 'RowController',
+    'form/{form}/row' => 'RowController',
     'cell' => 'CellController',
     'rating' => 'RatingController',
-    'score' => 'scoreController',
-    'list' => 'ListController'
+    'score' => 'scoreController'
+
 ]);
 Route::any('/search', 'RatingController@search');
 

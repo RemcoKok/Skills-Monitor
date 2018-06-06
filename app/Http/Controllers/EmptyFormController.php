@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\EmptyForm;
+use DB; 
 
 class EmptyFormController extends Controller
 {
@@ -14,8 +15,10 @@ class EmptyFormController extends Controller
      */
     public function index()
     {
+
         $empty_forms = EmptyForm::all()->toArray();
         
+
         return view('forms.index', compact('empty_forms'));
     }
 
@@ -73,7 +76,8 @@ class EmptyFormController extends Controller
      */
     public function edit($id)
     {
-        return view('forms.edit');
+        $empty_form = EmptyForm::all()->where('id', '=', $id)->pop();
+        return view('forms.edit')->with(["empty_form" => $empty_form]);
     }
 
     /**
@@ -85,7 +89,12 @@ class EmptyFormController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        DB::table('empty_forms')->where('id', '=', $id)->update([ 
+            'title'=>$request->title,
+            'competence_id'=>$request->competence_id
+        ]);
+        
+        return redirect('/form');
     }
 
     /**

@@ -44,10 +44,10 @@ class RowController extends Controller
         foreach ($request['cell_text'] as $cell_info)
         {
             //2.1 nieuwe cell toevoegen aan row
-            $row->cells()->create([$cell_info]);
+            $row->cells()->create(["cellText" => $cell_info, "cellLevel" => 5]);
         }
 //3. redirect naar zelfde pagina
-        return redirect('form/show');
+        return redirect(route('form.index')."/".$form->id);
 
     }
 

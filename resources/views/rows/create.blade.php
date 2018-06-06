@@ -19,7 +19,8 @@
 
 
             <div class="box-body">
-                <form method="post" action="store {{route('row.store')}}">
+                <form method="post" action="{{route('row.store',['form'=>request()->route('form')])}}">
+
                     {{csrf_field()}}
 
                 <div class="form-group">
@@ -46,18 +47,18 @@
                               name="cell_text[]"></textarea>
                 </div>
 
-                <div class="form-group">
-                    <label>Vul cel 5 in</label>
-                    <textarea class="form-control" type="text" rows="3" placeholder="Enter description"
-                              name="cell_text[]"></textarea>
-                </div>
+                    <div class="form-group">
+                        <label>Vul cel 5 in</label>
+                        <textarea class="form-control" type="text" rows="3" placeholder="Enter description"
+                                  name="cell_text[]"></textarea>
+                    </div>
 
-                <div class="form-group">
-                    <label>Vul cel 6 in</label>
-                    <textarea class="form-control" type="text" rows="3" placeholder="Enter description"
-                              name="cell_text[]"></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary pull-right"  >Opslaan</button>
+                    <div class="form-group">
+                        <label>Vul cel 6 in</label>
+                        <textarea class="form-control" type="text" rows="3" placeholder="Enter description"
+                                  name="cell_text[]"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary pull-right"  >Opslaan</button>
 
 
                 </form>

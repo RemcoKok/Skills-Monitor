@@ -9,8 +9,19 @@
 
 @section('content')
     <div class="box">
-        <div class="header">
-            <h2>Uw openstaande formulieren:</h2>
+        <div class="box-header">
+            <h3 class="box-title">Responsive Hover Table</h3>
+            <button class="btn btn-info" onclick="location.href='{{ route('form.create') }}'">Nieuw formulier</button>
+
+            <div class="box-tools">
+                <div class="input-group input-group-sm" style="width: 150px;">
+                    <input type="text" name="table_search" class="form-control" placeholder="Search">
+
+                    <div class="input-group-btn">
+                        <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                    </div>
+                </div>
+            </div>
         </div>
         <form action="/search" method="POST" role="search">
             {{ csrf_field() }}
@@ -25,32 +36,25 @@
         <table class="table table-bordered">
             <theader>        
                 <tr>
-                    <th>Titel</th>
+                    <th>Naam formulier</th>
                     <th>Competentie</th>
-                    <th></th>
-                    <th></th>
-                </tr>   
-            <tbody>
-                @if(isset($details) == null)
-                    @foreach($forms as $form)
-                        <tr>
-                            <td><u><a href="{{ route('rating.show', $form->id) }}">{{ $form->title }}</a></u></td>
-                            <td>{{ $form->competenceTitle }}</td>
-                            <td><a class="btn btn-primary" href="{{ route('rating.create', ['id' => $form->id]) }}">invullen</a></td>
-                            <td><a class="btn btn-primary" href="{{ route('form.index', $form->id)}}">aanpassen</a></td>
-                        </tr>
-                    @endforeach
-                @else
-                    @foreach($details as $form)
-                        <tr>
-                            <td><u><a href="{{ route('rating.show', $form->id) }}">{{ $form->title }}</a></u></td>
-                            <td>{{ $form->competenceTitle }}</td>
-                            <td><a class="btn btn-primary" href="{{ route('rating.create', ['id' => $form->id]) }}">invullen</a></td>
-                            <td><a class="btn btn-primary" href="{{ route('form.index', $form->id)}}">aanpassen</a></td>
-                        </tr>
-                    @endforeach
-                @endif   
-            </tbody> 
-        </table>
+                    <th>Aanpassen formulier</th>
+                    <th>invullen</th>
+                </tr>
+
+                @foreach($empty_forms as $empty_form)
+                    <tr>
+                        <td>{{$empty_form->title}}</td>
+                        <td>{{$empty_form->competence_id}}</td>
+                        <td><button onclick="location.href='{{ url("/form/".$empty_form->id."/edit")}}'"><i class="fa fa-pencil"></i> Aanpassen formulier</button></td>
+                        <td><a class="btn btn-primary" href="{{ route('rating.create', ['id' => $empty_form->id]) }}">invullen</a></td>
+                    </tr>
+                @endforeach
+
+                </tbody>
+            </table>
+        </div>
+        <!-- /.box-body -->
+
     </div>
 @stop

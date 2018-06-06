@@ -148,11 +148,11 @@ return [
                     'url'     => 'form/create',
                 ],
                 [
-                    'text' => 'Inzien',
+                    'text' => 'Formulier inzien',
                     'url'  => '#',
                 ],
                 [
-                    'text'    => 'Invullen',
+                    'text'    => 'In te vullen',
                     'url'     => '#',
                 ],
                 [
@@ -160,6 +160,7 @@ return [
                     'text' => 'Aanpassen',
                     'url'  => 'form/edit',
                 ],
+
             ],
         ],
     ],
