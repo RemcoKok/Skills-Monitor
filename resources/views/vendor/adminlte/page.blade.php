@@ -110,9 +110,7 @@
         <div class="content-wrapper">
 
         <section class="content">
-                @yield('content')
 
-        
             @if(config('adminlte.layout') == 'top-nav')
             <div class="container">
             @endif

@@ -20,7 +20,7 @@
             {{ csrf_field() }}
             <div class="col-md-6">
               <div class="form-group">
-                <label>Multiple</label>
+                <label>Kies een naam:</label>
                 <select name="user" class="form-control m-bot15" data-placeholder="Kies een persoon">
                   @foreach($users as $user)
                     <option value="{{ $user->id }}">{{ $user->name }}</option>

@@ -138,22 +138,13 @@ return [
             'submenu' => [
                 [
                     'text' => 'Alle formulieren',
-                    'url'  => 'list',
+                    'url'  => '/form',
                 ],
                 [
                     'text'    => 'Nieuw formulier',
                     'url'     => 'form/create',
                 ],
                 [
-                    'text' => 'Formulier inzien',
-                    'url'  => '#',
-                ],
-                [
-                    'text'    => 'In te vullen',
-                    'url'     => '#',
-                ],
-                [
-
                     'text' => 'Aanpassen',
                     'url'  => 'form/edit',
 

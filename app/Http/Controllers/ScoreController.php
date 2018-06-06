@@ -26,18 +26,16 @@ class ScoreController extends Controller
         if(request()->has('rid')) {
 
         $forms = DB::table('ratings')
-
         ->select('empty_forms.*', 'ratings.id as ratingId')
         ->where('ratings.id', (int)request('rid'))
         ->join('empty_forms', 'empty_forms.id','=','ratings.emptyForm_id')
-
         ->get();
 
         $rows = DB::table('ratings')
         ->select('rows.*')
         ->where('ratings.id',  (int)request('rid'))
         ->join('empty_forms', 'empty_forms.id','=','ratings.emptyForm_id')
-        ->join('rows', 'rows.emptyForm_id', '=', 'empty_forms.id')
+        ->join('rows', 'rows.empty_form_id', '=', 'empty_forms.id')
         ->get();
        
 
@@ -46,11 +44,13 @@ class ScoreController extends Controller
 
         ->where('ratings.id',  (int)request('rid'))
         ->join('empty_forms', 'empty_forms.id','=','ratings.emptyForm_id')
-        ->join('rows', 'rows.emptyForm_id', '=', 'empty_forms.id')
+        ->join('rows', 'rows.empty_form_id', '=', 'empty_forms.id')
         ->join('cells', 'cells.row_id', '=', 'rows.id')
         ->get();
+        
+ 
+        return view('score.create', compact('forms', 'rows', 'cells'));
         }
-        return view('score.create', compact('forms', 'form', 'rows', 'cells'));
     }
 
     /**
@@ -71,7 +71,7 @@ class ScoreController extends Controller
             $score->save();
         }
 
-        return $request->all();    
+        return redirect('/rating');    
     }
 
     /**
