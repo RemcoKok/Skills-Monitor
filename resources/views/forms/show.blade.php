@@ -24,7 +24,7 @@
                 </h3>
 
 
-                <button class="btn btn-primary pull-right" onclick="location.href='{{ url("form/edit") }}'">Wijzig
+                <button class="btn btn-primary pull-right" onclick="location.href='{{ url("form/".$empty_form->id."/edit") }}'">Wijzig
                     naam/competentie
                 </button>
             </div>
@@ -52,22 +52,21 @@
             <div class="box-body table-responsive no-padding">
                 <table class="table table-hover">
                     <tbody>
-                    <tr>
-                        <th>Cellen</th>
-                    </tr>
-
+                    
                     @foreach($empty_form->rows as $row)
+                    <tr>
                         @foreach($row->cells as $cell)
-                            <tr>
+                            
                                 <td>{{$cell->cellText}}</td>
-                            </tr>
+                            
                         @endforeach
+                        </tr>
                     @endforeach
-
+                    
                     </tbody>
                 </table>
             </div>
-            <button class="btn btn-primary pull-right" onclick="location.href='{{ url("/list/") }}'">Opslaan</button>
+            <button class="btn btn-primary pull-right" onclick="location.href='{{ url("/form/") }}'">Opslaan</button>
 
 
         </div>

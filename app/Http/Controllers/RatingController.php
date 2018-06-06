@@ -17,15 +17,19 @@ class RatingController extends Controller
      */
     public function index()
     {
-       
-        $forms = DB::table('empty_forms')
-        ->select('empty_forms.*','competences.title as competenceTitle')
-        ->join('competences', 'empty_forms.competence_id', '=', 'competences.id')
+
+        $id = Auth::user()->id;
+        
+        $ratings = DB::table('ratings')
+        ->select('users.*', 'ratings.*', 'empty_forms.title as title', 'empty_forms.competence_id as competenceTitle')
+        ->where('ratings.users_id_assessor', (int)$id)
+        ->join('empty_forms', 'ratings.emptyForm_id', '=', 'empty_forms.id')
+        ->join('users', 'ratings.users_id_rated', '=', 'users.id')
         ->get();
 
+        return view("ratings.index", compact('ratings'));
 
-        return view("ratings.index", compact('forms'));
-        
+
     }
 
     /**
@@ -37,9 +41,8 @@ class RatingController extends Controller
     {
         $id = (int)request('id');
         $forms = DB::table('empty_forms')
-        ->select('empty_forms.*','competences.title as competenceTitle')
+        ->select('empty_forms.*')
         ->where('empty_forms.id', $id)
-        ->join('competences', 'empty_forms.competence_id', '=', 'competences.id')
         ->get();
 
         $users = DB::table('users')
@@ -67,7 +70,7 @@ class RatingController extends Controller
         $rating->status = 1;
 
         $rating->save();
-        return redirect('/list');
+        return redirect('/form');
     }
 
     /**
@@ -81,12 +84,11 @@ class RatingController extends Controller
 
         $forms = DB::table('empty_forms')
         ->where('empty_forms.id', (int)$id)
-        ->select('empty_forms.*', 'competences.title as competence')
-        ->join('competences', 'empty_forms.competence_id', '=', 'competences.id')
+        ->select('empty_forms.*')
         ->get();
 
         $rows = DB::table('rows')
-        ->where('rows.emptyForm_id', (int)$id)
+        ->where('rows.empty_form_id', (int)$id)
         ->get();
 
         $cells = DB::table('cells')
@@ -105,9 +107,8 @@ class RatingController extends Controller
     {
         $ratings = DB::table('ratings')
         ->where('ratings.id', (int)$id)
-        ->select('users.*', 'ratings.*', 'empty_forms.title as formTitle', 'competences.title as competenceTitle')
+        ->select('users.*', 'ratings.*', 'empty_forms.title as formTitle', 'empty_forms.competence_id as competenceTitle')
         ->join('empty_forms', 'ratings.emptyForm_id', '=', 'empty_forms.id')
-        ->join('competences', 'empty_forms.competence_id', '=', 'competences.id')
         ->join('users', 'ratings.users_id_rated', '=', 'users.id')
         ->get();
 
@@ -137,15 +138,4 @@ class RatingController extends Controller
         //
     }
 
-    public function search(){
-        $q = Input::get ( 'q' );
-        $forms = DB::table('empty_forms')
-            ->select('empty_forms.*', 'competences.title as competenceTitle')
-            ->where('empty_forms.title','LIKE','%'.$q.'%')
-            ->join('competences', 'empty_forms.competence_id', '=', 'competences.id')
-            ->get(); 
-        if(count($forms) > 0)
-            return view('forms.index')->withDetails($forms)->withQuery ( $q );
-        else return redirect('/list');
-    }
 }

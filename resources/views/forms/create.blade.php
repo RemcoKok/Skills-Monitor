@@ -37,29 +37,4 @@
                 </form>
             </div>
         </div>
-
-        <div class="row invoice-info">
-            <div class="col-sm-4 invoice-col">
-                <h5><strong>Al eerder gemaakte formulieren</strong></h5>
-                <ul class="list-unstyled">
-                    <li style="color:blue; text-decoration:underline;">Programeren in Java</li>
-                    <li style="color:blue; text-decoration:underline;">Programmeren in BlueJ</li>
-                    <li style="color:blue; text-decoration:underline;">Programeren in Laravel</li>
-                    <li style="color:blue; text-decoration:underline;">Gamedevelopment in Typescript</li>
-                    <li style="color:blue; text-decoration:underline;">Werk en denkniveau Tekst & Beeld</li>
-
-                </ul>
-            </div>
-
-                <div class="col-sm-4 invoice-col">
-                <h5><strong>Contact</strong></h5>
-                <ul class="list-unstyled">
-                    <li style="color:blue; text-decoration:underline;">&#8618;&nbsp;FaceBook</li>
-                    <li style="color:blue; text-decoration:underline;">&#8618;&nbsp;Instagram</li>
-                    <li style="color:blue; text-decoration:underline;">&#8618;&nbsp;Twitter</li>
-                    <li style="color:blue; text-decoration:underline;">&#8618;&nbsp;WhatsApp</li>
-                    <li style="color:blue; text-decoration:underline;">&#8618;&nbsp;E-mail</li>
-                </ul>
-            </div>
-        </div>
 @stop

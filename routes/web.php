@@ -31,21 +31,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-//Route::get('/admin', 'AdminController@index')->name('admin');
-//Route::get('/users', 'SuperAdminController@index')->name('superadmin');
 
-//Route::get('/admin', 'AdminController@index')->name('admin');
-//Route::get('/users', 'SuperAdminController@index')->name('superadmin');
-
-Route::get('rating/{id}', [
-
-
-    'uses' => 'RatingController@create'
-])->name('create');
-
-
-    'uses' => 'RatingController@create'
-])->name('create');
 
 Route::resources([
     'form' => 'EmptyFormController',
@@ -53,9 +39,7 @@ Route::resources([
     'cell' => 'CellController',
     'rating' => 'RatingController',
     'score' => 'scoreController'
-
 ]);
 
-Route::any('/search', 'RatingController@search');
 
-
+?>

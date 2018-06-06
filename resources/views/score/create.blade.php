@@ -14,20 +14,9 @@
             <h2>&nbsp;{{ $form->title }}</h2><br>
             <table class="table table-bordered">
                 <thead>
-                    @foreach($rows as $row)
-                        @if($row->id==1)
-                            @foreach($cells as $cell)
-                                @if($cell->row_id == $row->id)
-                                    <th>
-                                        Level {{ $cell->cellLevel }} <font color="red">*</font>
-                                        @if($cell->id==1)
-                                            (slecht)
-                                        @endif
-                                    </th>
-                                @endif
-                            @endforeach
-                        @endif
-                    @endforeach
+                    @for($i =1; $i <= 6; $i++)
+                        <th>level {{ $i }}</th>
+                    @endfor
                     <th>Comment <font color="blue">(Optional)</font></th>
                 </thead>
 
@@ -45,7 +34,7 @@
                                     @endif
                                 @endforeach
                                 <td colspan="6" class="pull right">
-                                    <input type="text" name="comment{{ $row->id }}" placeholder="comment">
+                                    <input type="text" name="comment{{ $i }}" placeholder="comment">
                                 </td>
                             </tr>
                             <?php

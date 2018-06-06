@@ -39,12 +39,13 @@ class RowController extends Controller
     {
         //1. een nieuwe row aanmaken
         $row = $form->rows()->create([]);
-
+        $i =1;
         //2. voor alle cells in request
         foreach ($request['cell_text'] as $cell_info)
         {
             //2.1 nieuwe cell toevoegen aan row
-            $row->cells()->create(["cellText" => $cell_info, "cellLevel" => 5]);
+            $row->cells()->create(["cellText" => $cell_info, "cellLevel" => $i]);
+            $i++;
         }
 //3. redirect naar zelfde pagina
         return redirect(route('form.index')."/".$form->id);
