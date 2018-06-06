@@ -29,8 +29,8 @@
             <table class="table table-hover">
                 <tbody>
                 <tr>
-                    <th>Competentie</th>
                     <th>Naam formulier</th>
+                    <th>Competentie</th>
                     <th>Aanpassen formulier</th>
                 </tr>
 
@@ -38,7 +38,8 @@
                     <tr>
                         <td>{{$empty_form->title}}</td>
                         <td>{{$empty_form->competence_id}}</td>
-                        <td><button><i class="fa fa-pencil"></i> Aanpassen formulier</button></td>
+                        
+                        <td><button onclick="location.href='{{ url("/form/".$empty_form->id."/edit")}}'"><i class="fa fa-pencil"></i> Aanpassen formulier</button></td>
                     </tr>
                 @endforeach
 

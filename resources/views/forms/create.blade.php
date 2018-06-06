@@ -32,7 +32,7 @@
                         <input type="text" class="form-control" placeholder="Enter competence" name="competence_id"/>
                     </div>
                     <div class="form-group">
-                        <input type="submit" class="btn btn-primary"/>
+                    <button type="submit" class="btn btn-primary">Verzenden</button>
                     </div>
                 </form>
             </div>
