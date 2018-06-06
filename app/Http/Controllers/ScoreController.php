@@ -58,23 +58,18 @@ class ScoreController extends Controller
      */
     public function store(Request $request)
     {
+
+
         $values = $request->all();
         $id = (int)request('id');
         for($i = 1; $i <= sizeof($values) / 2 -1; $i++){
-            // $scores[] = $values['Option'.$i];
-            // $comments[] = $values['comment'.$i];
             $score = new Score;
             $score->cell_id = request('Option'.$i);
             $score->comment = request('comment'.$i);
             $score->rating_id = $id;
             $score->save();
         }
-        
 
-        
-        // foreach($scores as $score){
-        // }
-        
         return $request->all();    
     }
 

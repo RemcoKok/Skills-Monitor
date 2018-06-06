@@ -36,7 +36,7 @@
                         <?php
                             $i =1;
                         ?>
-                        @foreach($rows as $row) 
+                        @foreach($rows as $row)
                             <tr>
                                 @foreach($cells as $cell)
                                     @if($row->id == $cell->row_id)
@@ -56,7 +56,7 @@
 
                 <button type="submit" class="btn btn-primary pull-right">Submit</button>
                 </form>
-                <button type=""button class="btn btn-primary pull-left" onclick="location.href='{{ url("/rating") }}'">Back</button>
+                <button type="button" class="btn btn-primary pull-left" onclick="location.href='{{ url("/rating") }}'">Back</button>
     @endforeach
     </div>
 
