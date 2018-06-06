@@ -134,10 +134,7 @@ return [
         ],
         [
             'text'    => 'Formulieren',
-
-
             'icon'    => ' fa-file-text-o',
-
             'submenu' => [
                 [
                     'text' => 'Alle formulieren',
@@ -155,6 +152,11 @@ return [
                     'text'    => 'In te vullen',
                     'url'     => '#',
                 ],
+                [
+                    'text' => 'Aanpassen',
+                    'url'  => '#',
+                ],
+
             ],
         ],
     ],
