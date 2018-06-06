@@ -33,15 +33,18 @@ Route::get('/home', 'HomeController@index')->name('home');
 //Route::get('/admin', 'AdminController@index')->name('admin');
 //Route::get('/users', 'SuperAdminController@index')->name('superadmin');
 
+Route::get('rating/{id}', [
+
+    'uses' => 'RatingController@create'
+])->name('create');
 
 Route::resources([
-    //'users' => 'UserController',
-
     'form' => 'EmptyFormController',
     'form/{form}/row' => 'RowController',
     'cell' => 'CellController',
     'rating' => 'RatingController',
     'score' => 'scoreController'
+
 ]);
 
 
