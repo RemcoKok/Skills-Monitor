@@ -67,7 +67,7 @@ class RatingController extends Controller
         $rating->status = 1;
 
         $rating->save();
-        return redirect('/rating');
+        return redirect('/list');
     }
 
     /**
@@ -91,7 +91,7 @@ class RatingController extends Controller
         $cells = DB::table('cells')
         ->get();
 
-        return view("ratings.show", compact('ratings', 'rows', 'cells'));
+        return view("ratings.show", compact('forms', 'rows', 'cells'));
     }
 
     /**
@@ -144,7 +144,7 @@ class RatingController extends Controller
             ->join('competences', 'empty_forms.competence_id', '=', 'competences.id')
             ->get(); 
         if(count($forms) > 0)
-            return view('ratings.index')->withDetails($forms)->withQuery ( $q );
-        else return redirect('/rating');
+            return view('forms.index')->withDetails($forms)->withQuery ( $q );
+        else return redirect('/list');
     }
 }

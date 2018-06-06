@@ -7,17 +7,16 @@
 @stop
 
 @section('content')
-<link rel="stylesheet" href="<?php echo asset('css/GRE.css')?>" type="text/css"> 
 <div class="box">
     <div class="header">
         <h2>Uw openstaande formulieren:</h2>
     </div>
     <form action="/search" method="POST" role="search">
         {{ csrf_field() }}
+        <div class=" col-sm-5" style="margin:10px 0px 10px 10px;">
         <button type="submit" class="btn btn-primary pull-right" style="margin:10px 10px 10px 0px;">zoek formulier</button>
-            <div class="" style="margin:10px 0px 10px 10px;">
-                <input class="form-control col-sm-3 pull-right" placeholde="Zoek formulieren" type="text" name="q">
-            </div>  
+        <input class="form-control pull-right" placeholde="Zoek formulieren" type="text" name="q">
+        </div>  
     </form>
 
     <table class="table table-bordered">
@@ -45,31 +44,6 @@
             @endif   
         </tbody> 
     </table>
-
-        
-    
-    
-    <ul>
-    <h4>eaOFiuAWBFaNWDawIUDn:</h4>
-        <li>0</li>
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
-        <li>4</li>
-    </ul>
-    
-    
-    <ul>
-    <h4>eaOFiuAWBFaNWDawIUDn:</h4>
-        <li>0</li>
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
-        <li>4</li>
-    </ul>
-
-
-
 </div>
 
 

@@ -13,8 +13,6 @@
     {{ session()->get('success') }}
 </div>
 @endif
-    
-
     <div class="box">
     @foreach($forms as $form)
         <table class="table table-bordered">
@@ -30,10 +28,11 @@
 
             <tbody>
                 @foreach($rows as $row) 
+                    @if($row->emptyForm_id == $form->id)
                     <tr>
                         @foreach($cells as $cell)
                             @if($row->id == $cell->row_id)
-                                <td><input name="Option{{ $row->id }}"  id="{{ $cell->id }}" value="option" type="radio">&nbsp;{{ $cell->cellText }}</td>
+                                <td><input name="Option[]"  id="{{ $cell->id }}" value="{{$cell->id}}" type="radio">&nbsp;{{ $cell->cellText }}</td>
                             @endif
                         @endforeach
                         <td colspan="6" class="pull right">
@@ -41,7 +40,7 @@
                 </td>
 
                     </tr>
-
+                    @endif
                 @endforeach
 
             </tbody>
