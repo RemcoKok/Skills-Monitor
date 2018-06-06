@@ -123,13 +123,13 @@ return [
         ],
         'ACCOUNT SETTINGS',
         [
-            'text' => 'Profile',
+            'text' => 'Profiel',
             'url'  => 'admin/settings',
             'icon' => 'user',
         ],
         [
-            'text' => 'Change Password',
-            'url'  => 'admin/settings',
+            'text' => 'Wachtwoord',
+            'url'  => 'password/reset',
             'icon' => 'lock',
         ],
         [
@@ -144,13 +144,13 @@ return [
                     'text'    => 'Nieuw formulier',
                     'url'     => 'form/create',
                 ],
-                [
-                    'text' => 'Aanpassen',
-                    'url'  => 'form/edit',
-
-                ],
 
             ],
+        ],
+        [
+            'text' => 'Rang',
+            'url'  => 'users',
+            'icon' => 'users',
         ],
     ],
 
