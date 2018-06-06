@@ -12,7 +12,8 @@
         "laravel/tinker": "~1.0",
         "laravelcollective/html": "~5.0",
         "spatie/laravel-permission": "^2.12",
-        "zizaco/entrust": "5.2.x-dev"
+        "zizaco/entrust": "5.2.x-dev",
+        "laravelcollective/html": "~5.0"
 
     },
     "require-dev": {

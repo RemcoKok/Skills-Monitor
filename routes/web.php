@@ -37,6 +37,11 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('rating/{id}', [
 
+
+    'uses' => 'RatingController@create'
+])->name('create');
+
+
     'uses' => 'RatingController@create'
 ])->name('create');
 
