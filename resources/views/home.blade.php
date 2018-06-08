@@ -3,9 +3,11 @@
 @section('title', 'Home')
 
 @section('content_header')
-    <h1>STUDENT Dashboard </h1>
+    <h1>Skills-Monitor </h1>
 @stop
 
 @section('content')
-    <p>You are logged in as a <strong>student!</strong></p>
+
+   <h3><strong>Welkom op onze site</strong></h3>
+
 @stop

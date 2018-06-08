@@ -26,7 +26,6 @@ Auth::routes();
     Route::post('users/active_deactive', 'UserController@activeDeactive')->name('users.active_deactive');
     Route::post('users/change_role', 'UserController@changeRole')->name('users.change_role');
     Route::get('users', 'UserController@index')->name('superadmin');
-    
 //   });  
 
 Route::get('/home', 'HomeController@index')->name('home');
