@@ -3,7 +3,7 @@
 @section('title', 'Nieuw formulier')
 
 @section('content_header')
-    <h1>Maak een nieuw formulier </h1>
+    <h1>Nieuw formulier </h1>
 @stop
 
 @section('content')

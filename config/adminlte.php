@@ -124,7 +124,7 @@ return [
         'ACCOUNT SETTINGS',
         [
             'text' => 'Profile',
-            'url'  => 'admin/settings',
+            'url'  => 'admin/settingss',
             'icon' => 'user',
         ],
         [
@@ -161,20 +161,33 @@ return [
                     'url'  => '#',
                 ],
             ],
-        ],
-        'LABELS',
-        [
-            'text'       => 'Important',
-            'icon_color' => 'red',
+
         ],
         [
-            'text'       => 'Warning',
-            'icon_color' => 'yellow',
+            'text' => 'mail',
+            'url'  => 'admin/settings',
+            'icon' => 'envelope',
         ],
+
         [
-            'text'       => 'Information',
-            'icon_color' => 'aqua',
-        ],
+            'text' => 'contact',
+            'url'  => 'admin/settingsss',
+            'icon' => 'phone',
+        ]
+
+        // 'LABELS',
+        // [
+        //     'text'       => 'Important',
+        //     'icon_color' => 'red',
+        // ],
+        // [
+        //     'text'       => 'Warning',
+        //     'icon_color' => 'yellow',
+        // ],
+        // [
+        //     'text'       => 'Information',
+        //     'icon_color' => 'aqua',
+        // ],
     ],
 
     /*

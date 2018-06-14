@@ -3,7 +3,8 @@
 @section('title', 'AdminLTE')
 
 @section('content_header')
-    <h1>STUDENT Dashboard </h1>
+    <h1>Alle formulieren </h1>
+    <br>
 
 @stop
 
